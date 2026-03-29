@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set +e
+
+echo "Syncing handoff prompts..."
+npm run sync:handoff-prompts
+HANDOFF_STATUS=$?
+
+echo "Syncing agent projections..."
+npm run sync:agent-projections
+AGENT_STATUS=$?
+
+echo "Checking lightweight review candidates and follow-up reminders..."
+npm run check:review-candidates
+REVIEW_STATUS=$?
+
+if [ "$HANDOFF_STATUS" -ne 0 ] || [ "$AGENT_STATUS" -ne 0 ] || [ "$REVIEW_STATUS" -ne 0 ]; then
+  echo "Post-commit sync completed with warnings."
+  echo "handoff sync status: $HANDOFF_STATUS"
+  echo "agent projection sync status: $AGENT_STATUS"
+  echo "lightweight review status: $REVIEW_STATUS"
+fi
+
+exit 0

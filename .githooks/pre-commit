@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+echo "Running protocol consistency check..."
+npm run check:protocol
+
+echo "Checking lightweight linking candidates..."
+npm run check:linking-candidates

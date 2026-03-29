@@ -1,0 +1,14 @@
+{
+  "name": "cognitive-commons",
+  "private": true,
+  "scripts": {
+    "check:agent-sync-candidates": "node scripts/check-agent-sync-candidates.js",
+    "check:expansion-candidates": "node scripts/check-expansion-candidates.js",
+    "check:essay-candidates": "node scripts/check-essay-candidates.js",
+    "check:linking-candidates": "node scripts/check-linking-candidates.js",
+    "check:pruning-candidates": "node scripts/check-pruning-candidates.js",
+    "check:current-state-sync": "node scripts/check-current-state-sync.js",
+    "check:review-candidates": "node scripts/check-review-cycle.js",
+    "setup:hooks": "node scripts/setup-hooks.js"
+  }
+}
