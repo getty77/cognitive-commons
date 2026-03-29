@@ -1,53 +1,48 @@
 # Q&A Logs
 
-このディレクトリには、
-Claude / Codex / ChatGPT を起点とする一問一答ログを置く。
+This directory stores question-and-answer style logs originating from Claude, Codex, or ChatGPT.
 
-`logs/qa/` は、
-`logs/daily/` と同じく入力ログの一種だが、
-日次状態遷移そのものではなく、
-仮説生成・検証・分岐のための対話入力を保持する層である。
+`logs/qa/` is also an input-log layer, like `logs/daily/`, but it stores dialogue input used for hypothesis generation, testing, and branching rather than daily state transitions themselves.
 
-## 役割
+## Role
 
 - `logs/daily/`:
-  その日の基底ログ
+  the day's base log
 - `logs/qa/`:
-  一問一答、短い検討、仮説探索、反証候補の対話ログ
+  short question-and-answer exchanges, brief investigations, hypothesis exploration, and counterexample-oriented dialogue
 - `fragments/`:
-  `logs/qa/` や `logs/daily/` から切り出された局所仮説
+  local hypotheses extracted from `logs/qa/` or `logs/daily/`
 - `playbook/`:
-  運用価値が確認された即応ルール
+  rapid-response rules whose operational value has been confirmed
 
-## 基本方針
+## Basic Policy
 
-- 一問一答は `daily` に混ぜず、`logs/qa/` に分離する
-- 1ファイル1セッションを基本とする
-- 会話全文ではなく、再投入価値のある圧縮ログとして残す
-- 仮説候補が出た場合は、必要に応じて `fragments/` へ切り出す
-- ディレクトリ分けは「誰が保存したか」ではなく、「どの対話で内容が生成されたか」で決める
+- Keep Q&A separate from `daily`
+- Prefer one file per session
+- Preserve compressed logs with re-ingestion value, not raw full transcripts
+- If hypothesis candidates appear, cut them into `fragments/` when appropriate
+- Split directories based not on who saved the file, but on which conversation generated the content
 
-## ディレクトリ
+## Directories
 
 - `codex/`:
-  Codex との直接対話で生成された一問一答ログ
+  Q&A logs generated in direct conversation with Codex
 - `claude/`:
-  Claude との直接対話で生成された一問一答ログ
+  Q&A logs generated in direct conversation with Claude
 - `chatgpt/`:
-  ChatGPT スレッドで生成された一問一答ログ
+  Q&A logs generated in ChatGPT threads
 
-### 仕分けルール
+### Sorting Rules
 
-- Codex がファイルを書いても、元の対話が ChatGPT なら `chatgpt/` に置く
-- Codex や Claude がファイルを書いても、元の対話が Claude なら `claude/` に置く
-- Codex との直接対話で生まれた短い検討・認識補正・仮説整理だけを `codex/` に置く
-- Claude との直接対話で生まれた短い検討・認識補正・仮説整理だけを `claude/` に置く
-- 保存実行者ではなく、生成起点の対話系に合わせて置き場を決める
+- Even if Codex writes the file, store it in `chatgpt/` if the source conversation was ChatGPT
+- Even if Codex or Claude writes the file, store it in `claude/` if the source conversation was Claude
+- Put only Codex-native short reviews, recognition adjustments, or hypothesis organization into `codex/`
+- Put only Claude-native short reviews, recognition adjustments, or hypothesis organization into `claude/`
+- Decide the destination by the dialogue system that generated the content, not by the agent that executed the save
 
-## 命名例
+## Naming Examples
 
 - `2026-03-26_session-01.md`
 - `2026-03-26_hypothesis-screening.md`
 
-日付を先頭に置き、
-必要ならセッション番号または短い用途名を続ける。
+Put the date first, then add a session number or a short usage label if needed.

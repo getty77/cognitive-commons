@@ -1,101 +1,77 @@
 # Todo
 
-このディレクトリには、
-次に実行する項目を置く。
+This directory stores items to execute next.
 
-`todo/` は、
-知識を保持する層ではなく、
-実行キューを保持する層である。
-ここでは、
-残すことより回すことを優先する。
-主語は、
-`こうやる`
-ではなく
-`今回これをやる`
-に置く。
+`todo/` is not a knowledge-retention layer.
+It is an execution queue.
+Here, turning things over matters more than preserving them.
+The subject is not “this is how to do it,” but “this is what I will do this time.”
 
-## 役割
+## Role
 
 - `logs/`:
-  状態差分、生観測、出来事記録
+  state differences, raw observation, event records
 - `tips/`:
-  すぐ効く軽量ハック、小さな運用知
+  lightweight hacks and small operational know-how
 - `todo/`:
-  次にやる具体行動、実行キュー
+  concrete next actions and execution queues
 - `playbook/`:
-  概念層の運用ルール
+  concept-level operational rules
 
-## `todo/` に置くもの
+## What Belongs in `todo/`
 
-- 今日やること
-- 近いうちに試すこと
-- `tips` を踏まえて実行したい行動
-- `logs` の差分から起きた次アクション
-- `tips` を見て起こした今回の実体
+- what to do today
+- things to try soon
+- actions you want to execute based on `tips`
+- next actions triggered by differences in `logs`
+- the current concrete instantiation of something derived from a tip
 
-## 置かないもの
+## What Does Not Belong Here
 
-- 長期保存したい知識
-- 背景説明や理論
-- 完了後も参照価値が高いもの
-- 単なる思いつきで、実行意図が薄いもの
+- knowledge that should be preserved long term
+- background explanation or theory
+- material that remains valuable after completion
+- thoughts with weak execution intent
 
-## 運用原則
+## Operational Principles
 
-- `todo/` はガンガン消してよい
-- 完了したら原則削除する
-- 明示アーカイブは作らない
-- 必要なら Git 履歴を参照する
-- 頻出する todo や再利用価値が見えた todo だけを `tips/` へ蒸留する
-- 優先順位は `差分が出たら logs`、`やり方として残すなら tips`、`どちらでもなければ delete` とする
+- delete from `todo/` aggressively
+- once complete, remove it by default
+- do not create explicit archives for completed todo items
+- refer to Git history if needed
+- only distill into `tips/` when a todo recurs or reveals reusable value
+- use this priority order: if it is a diff, keep it in `logs`; if it is mainly a reusable method, keep it in `tips`; otherwise delete it
 
-## サブディレクトリ
+## Subdirectories
 
 - `private/`
-  家庭、身体、感情、生活運用の todo
+  todo items for family, body, emotion, and everyday life
 - `work/`
-  顧客対応、会議、引き継ぎ、交渉など仕事運用の todo
+  todo items for client work, meetings, handoff, negotiation, and workplace coordination
 - `dev/`
-  開発環境、AI協働、実装ワークフローの todo
+  todo items for development environments, AI collaboration, and implementation workflows
 
-## 通常動線
+## Usual Flow
 
-通常利用では、
+The usual flow is:
 
-`logs diff -> tips参照 -> todo実行`
+`logs diff -> consult tips -> execute todo`
 
-が主動線になる。
+In this structure, `todo / tips / playbook` are usually better understood as adjacent layers of `practice / means / theory` than as a simple promotion chain.
+In most cases, it is more natural to consult a tip, create a todo from it, and only check the related playbook when needed.
 
-このとき、
-`todo / tips / playbook` は
-単純な昇格列ではなく、
-`実践 / 手段 / 理論`
-の近接三層として扱う。
-通常は、
-tip を参照して todo を起こし、
-必要なら関連 playbook を見る、
-というリンク運用を優先する。
+Todo items that are easier to process as a bundle may also be linked laterally.
+If execution order, prerequisite structure, or simultaneous handling becomes clearer that way, do not isolate them unnecessarily.
 
-また、
-同じ束の中で処理した方が自然な todo 同士は、
-同層リンクで結んでよい。
-実行順、前提関係、同時処理のまとまりが見えるなら、
-単独タスクとして孤立させない方が扱いやすい。
+Conceptual layers such as `fragments` and `playbook` are only consulted when needed.
 
-概念層である `fragments` や `playbook` は、
-必要な時だけ見に行く。
-
-また、
-繰り返し出る todo は
+Repeated todo items may be distilled as:
 
 `todo -> tips`
 
-として蒸留してよい。
-これにより、
-todo 自体をアーカイブせずに、
-再利用知だけを軽く残せる。
+This allows reusable knowledge to be preserved lightly without turning `todo` itself into an archive.
 
-## 参照先
+## References
 
 - [`criteria.md`](./criteria.md)
 - [`private/README.md`](./private/README.md)

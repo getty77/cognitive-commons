@@ -1,7 +1,6 @@
 # Cognitive Tool Generated Files
 
-このディレクトリには、
-スクリプトで自動生成される固定文面を置く。
+This directory contains stable text generated automatically by scripts.
 
-手編集は原則避け、
-生成元スクリプトまたは参照プロトコルを更新する。
+Avoid editing these files by hand when possible.
+Instead, update the source script or the protocol that generates them.

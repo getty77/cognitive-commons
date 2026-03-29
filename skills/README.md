@@ -1,26 +1,24 @@
 # Repo Skills
 
-このディレクトリには、
-Spiral Recursive OS 由来で repo 内に同梱する Skill 実体を置く。
+This directory stores Skill implementations bundled directly inside the repo.
 
-目的は、
+The purpose is to:
 
-- repo の正本ルールと Skill 実体を近接させる
-- 切り出し公開時にも同じ構造を維持しやすくする
-- 個人環境の `~/.codex/skills/` に依存しすぎないようにする
+- keep canonical repo rules close to the Skill implementations derived from them
+- make later public extraction easier without changing the structure
+- avoid depending too heavily on personal-environment paths like `~/.codex/skills/`
 
-個人環境へインストールする場合も、
-まずここを正本として扱う。
+Even when installing into a personal environment, this directory should be treated as the canonical source first.
 
-## 実装済み Skills
+## Implemented Skills
 
 - `spiral-daily-log-sorter`
-  雑メモや混在入力を適切な保存先へ仕分ける
+  Sort rough notes or mixed inputs into appropriate save destinations
 - `spiral-past-diary-reingestion`
-  過去日記を現在のOS語彙で安全に再読解する
+  Safely reinterpret past diaries through the current OS vocabulary
 - `spiral-media-reinterpreter`
-  読書・音声・映像由来の入力を media log へ正規化する
+  Normalize reading-, audio-, and video-derived input into media logs
 - `spiral-layer-review`
-  レイヤー責務に照らして昇格・降格・移設などを査定する
+  Evaluate promotion, demotion, relocation, and other layer-responsibility moves
 - `spiral-public-candidate-evaluator`
-  公開候補化と行き先タグを判定する
+  Evaluate public candidacy and destination tags

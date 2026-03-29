@@ -1,24 +1,21 @@
 # Internal Experiments
 
-このディレクトリには、
-手元運用の中で行う実験を置く。
+This directory stores experiments run within personal operation.
 
-対象例：
+Examples:
 
-- 認知パターンの試行記述
-- 自己運用上の挙動確認
-- ログ形式や観測粒度の試行
-- まだ外部接続を伴わない構造テスト
+- trial descriptions of cognitive patterns
+- behavior checks inside self-operation
+- experiments with log formats and observation granularity
+- structural tests that do not yet involve external connections
 
-ここでは、
-まず自分の運用に対して効くかどうかを評価する。
+The main question here is whether something works for local operation first.
 
-ここで安定したものは、
-必要に応じて `playbook/` や `theory/` へ昇格してよい。
+Once stable, material here may be promoted into `playbook/` or `theory/`.
 
-必要に応じて、
+When needed, subcategories such as
 
 - `cognitive_patterns/`
 - `tool_prototypes/`
 
-のような下位カテゴリを切ってよい。
+may be used.

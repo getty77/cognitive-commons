@@ -1,7 +1,5 @@
 # Work Tips
 
-顧客対応、会議、引き継ぎ、交渉、社内調整の小さな tips を置く。
+This directory stores small tips for client work, meetings, handoff, negotiation, and workplace coordination.
 
-ここでは、
-仕事の現場でそのまま効く軽量ハックや、
-小さな運用知を扱う。
+It covers lightweight hacks and small operational knowledge that can be used directly in work settings.

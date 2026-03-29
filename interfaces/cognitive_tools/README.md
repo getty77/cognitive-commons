@@ -1,49 +1,44 @@
 # Cognitive Tools
 
-このディレクトリには、
-本システムを補助する実用的な認知ツールを置く。
+This directory contains practical cognitive tools that support the system in day-to-day use.
 
-例：
+Examples:
 
-- 日次チェックシート
-- 状態判定フロー
-- 対話前後の整流プロトコル
-- 摩擦検出メモ
-- ChatGPT からのログ抽出プロトコル
-- 実行系への保存ハンドオフプロトコル
-- ChatGPT / Codex / GitHub Desktop 運用フロー
-- 自動生成されるハンドオフプロンプト
+- daily check sheets
+- state assessment flows
+- pre/post-dialogue alignment protocols
+- friction detection notes
+- log extraction protocols for ChatGPT
+- save handoff protocols for execution agents
+- ChatGPT / Codex / GitHub Desktop workflows
+- auto-generated handoff formats
 
-目的は自己理解ではなく、
-運用時の負荷軽減と再現性の確保である。
+The goal here is not self-understanding itself, but reducing operational load and improving reproducibility.
 
-ここへ置く前段階の候補は、
-`public_candidates/` で
-`destination_tag: cognitive_tool` として保留してよい。
+Items that are not ready to live here yet can be kept in [`public_candidates/`](../../public_candidates) with `destination_tag: cognitive_tool`.
 
-## 構成
+## Structure
 
 - `protocols/`
-  抽出、保存、受け渡しの手順
+  Procedures for extraction, saving, and handoff
 - `templates/`
-  実際にコピーベースで使う雛形
+  Copyable templates for direct use
 - `workflows/`
-  複数ツールをまたぐ実運用フロー
+  Practical flows that span multiple tools
 - `generated/`
-  スクリプトから同期生成される固定文面
+  Stable generated text synchronized from scripts
 
-ハンドオフ用の固定文面は、
+The canonical handoff format lives in:
+
 `interfaces/cognitive_tools/generated/generated_agent_handoff_format.md`
-を正本とし、
-`npm run sync:handoff-prompts` または `npm run check:protocol` で同期する。
 
-Claude / Discord / スマホ参照を含む実運用フローは、
+Sync it with `npm run sync:handoff-prompts` or `npm run check:protocol`.
+
+For practical workflows that include Claude, Discord, and mobile usage, see:
+
 `interfaces/cognitive_tools/workflows/chatgpt_codex_github_desktop_workflow.md`
-を参照する。
 
-抽出と保存の主要プロトコルは、
+For the main extraction and save protocols, see:
 
 - `interfaces/cognitive_tools/protocols/chatgpt_log_extraction_protocol.md`
 - `interfaces/cognitive_tools/protocols/codex_save_handoff_protocol.md`
-
-を参照する。

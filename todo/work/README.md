@@ -1,6 +1,5 @@
 # Work Todo
 
-顧客対応、会議、引き継ぎ、交渉、社内調整の todo を置く。
+This directory stores todo items for client work, meetings, handoff, negotiation, and workplace coordination.
 
-ここでは、
-仕事上で次にやる具体行動を扱う。
+It is for the concrete next actions to take in work settings.

@@ -1,92 +1,81 @@
 # Daily Log Rules
 
-`logs/daily/` は、
-その日の状態差分を残すための基底ログ層である。
+`logs/daily/` is the base log layer for storing the day's state differences.
 
-ここで求めるのは、
-整った日記本文ではなく、
-その日に OS を動かした入力・解釈・判断・更新である。
+What matters here is not a polished diary entry, but the inputs, interpretations, decisions, and updates that actually moved the OS that day.
 
 ---
 
-## ■ 基本方針
+## Basic Policy
 
-- `daily` はその日の基底ログを置く
-- 基本はその日の `YYYY-MM-DD.md` へ追記する
-- 同日に複数ログがある場合でも、同じ流れとして読めるなら追記を優先する
-- 同日に別フェーズ・別テーマ・別保存単位として切った方が自然なときだけ、基底を `YYYY-MM-DD.md`、追加分を `YYYY-MM-DD_02.md` 以降で持つ
-- 入口は整っていても雑でもよい
-- 保存時に `input / interpret / decide / act / update / current_state / next_state` へ正規化する
-- `daily` に無理に全部を入れず、別層が自然なら振り分ける
-
----
-
-## ■ 許容する入口
-
-`daily` の元入力は、以下のどれでもよい。
-
-- 対話ログの圧縮
-- 箇条書きの雑メモ
-- 断片的な身体感覚メモ
-- 作業詰まりや対人摩擦の短文
-- 複数話題が混ざった未整理の走り書き
-
-最初から完全な見出し構造に揃っている必要はない。
-むしろ、
-まず雑に投げ、
-保存時に仕分けるほうを正としてよい。
+- `daily` stores the day's base log
+- By default, append to that day's `YYYY-MM-DD.md`
+- Even when there are multiple logs on the same day, prefer appending if they still read as part of the same flow
+- Only split into `YYYY-MM-DD.md` plus `YYYY-MM-DD_02.md` and onward when separate phases, topics, or save units make that more natural
+- The input can be neat or messy
+- Normalize on save into `input / interpret / decide / act / update / current_state / next_state`
+- Do not force everything into `daily`; route it elsewhere if another layer is more natural
 
 ---
 
-## ■ 雑メモ仕分けの原則
+## Accepted Entry Forms
 
-雑メモや混在入力を扱うときは、
-以下の順で仕分ける。
+The source input for `daily` may be any of the following:
 
-1. まずその日の `daily` に残すべき状態差分があるかを見る
-2. その差分が既存の当日ログと同じ流れなら、まず追記できるかを見る
-3. 同日でも別フェーズ・別テーマ・別保存単位として独立させた方が読みやすいなら `YYYY-MM-DD_02.md` 以降へ切る
-4. `daily` に残すなら、未整理の文をそのまま置かずに正規見出しへ並べ替える
-5. `daily` に混ぜるほどではない対話的整理なら `logs/qa/`
-6. 読書・音声・映像由来が主なら `logs/reading/` `logs/listening/` `logs/watching/`
-7. 単発観測より反復仮説に近いなら `fragments/` 候補として扱う
+- a compressed dialogue log
+- rough bullet notes
+- fragmentary body-sensation notes
+- short notes on work blockage or interpersonal friction
+- mixed rough notes containing multiple topics
 
-仕分けの目的は、入力を減らすことではなく、
-再投入しやすい保存先へ置き直すことである。
+The input does not need to start in a fully structured heading format.
+In fact, it is fine to throw it in roughly first and sort it only when saving.
 
 ---
 
-## ■ daily に残すもの
+## Principles for Sorting Rough Notes
 
-以下に当てはまるものは `daily` に残しやすい。
+When handling rough notes or mixed inputs, sort them in this order:
 
-- その日の状態を動かした入力
-- 解釈や判断の変化
-- 小さくても現在状態へ効いた更新
-- 次サイクルへ引き継ぎたい差分
+1. First check whether there is a state difference worth keeping in that day's `daily`
+2. If so, check whether it belongs in the existing log for that day
+3. Even on the same day, split into `YYYY-MM-DD_02.md` onward if a separate phase, topic, or save unit would read more clearly
+4. If it belongs in `daily`, do not leave it as raw notes; rearrange it into the standard headings
+5. If it is more of a dialogue-based clarification than a daily delta, route it to `logs/qa/`
+6. If it is mainly derived from books, audio, or video, route it to `logs/reading/`, `logs/listening/`, or `logs/watching/`
+7. If it is closer to a reusable local hypothesis than a one-off observation, treat it as a `fragments/` candidate
 
-同日の追加観測でも、
-既存の `daily` と一体で読めるなら追記の方が自然である。
-
-逆に以下は、同日でも別ファイルに切りやすい。
-
-- 明確に別フェーズへ移った
-- 主題が大きく切り替わった
-- handoff 由来であっても、既存ログへ追記すると保存単位が濁る
-- 後から見たとき、独立した塊として参照した方がわかりやすい
-
-逆に、
-単なる会話の再現、
-媒体固有の長い感想全文、
-単発の思いつきだけは、
-他層へ振り分けたほうがよい。
+The goal of sorting is not to reduce input.
+It is to place material into a save location where it can be re-ingested later.
 
 ---
 
-## ■ 書き換え時の姿勢
+## What Belongs in `daily`
 
-- 入力は雑でよい
-- 保存時にだけ整える
-- 整えすぎて物語化しない
-- その日を動かした差分だけを残す
-- 別層が自然なら無理に `daily` へ押し込まない
+The following kinds of material fit well in `daily`:
+
+- inputs that changed the day's state
+- shifts in interpretation or judgment
+- updates that affected the current state, even if small
+- differences worth carrying into the next cycle
+
+Even when a new observation is added on the same day, appending is still preferable if it reads as one continuous unit.
+
+By contrast, a separate file is more natural when:
+
+- the phase clearly changed
+- the central theme shifted significantly
+- even if it came from handoff, appending would blur the save unit
+- it will be easier to read later as its own block
+
+By contrast, simple conversation replay, long media-specific reactions, or one-off stray thoughts are often better routed elsewhere.
+
+---
+
+## Editing Posture
+
+- Input may be rough
+- Only the saved form needs to be structured
+- Do not over-structure it into a narrative
+- Keep only the differences that moved the day
+- If another layer is more natural, do not force it into `daily`

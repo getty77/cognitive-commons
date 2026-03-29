@@ -1,19 +1,16 @@
 # Directory Merge
 
-このディレクトリは、
-ディレクトリ管理における「統合」を扱う。
+This directory handles merges within directory management.
 
-統合は、
-分けていたディレクトリ構造の責務差が薄れたときに、
-探索コストを下げるためまとめ直す操作である。
+Directory merge is the operation of recombining a previously split directory structure when its responsibility differences have weakened and exploration cost should be reduced.
 
-## 下位文書
+## Sub-documents
 
 - [`criteria.md`](./criteria.md)
-  統合の判断基準
+  Criteria for merging
 - [`log.md`](./log.md)
-  統合の実施履歴
+  Execution history of merges
 
-## 参照先
+## References
 
 - `meta/directory_management/README.md`

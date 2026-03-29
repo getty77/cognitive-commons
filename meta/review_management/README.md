@@ -1,48 +1,44 @@
 # Review Management
 
-このディレクトリは、
-コミット時に走らせる軽量レビューの位置づけをまとめる。
+This directory defines the role of lightweight reviews that run around commits.
 
-ここで扱うレビューは、
-自動で構造変更を行うものではない。
-日常運用では重くしすぎず、
-それでも「次の会議で見る価値がある差分」を
-浮かせるための advisory 層として使う。
+The reviews handled here do not perform structural changes automatically.
+They are meant as an advisory layer that keeps day-to-day operation light while still surfacing differences worth looking at in the next review meeting.
 
-## 基本方針
+## Core Policy
 
-- 日常のコミット時レビューは軽量に保つ
-- `HEAD` の変更差分だけを見る
-- 全履歴走査や本文深掘りはしない
-- 自動昇格・自動降格・自動削除は行わない
-- advisory が出たら、そのコミットサイクルの中で一度は見ることを推奨する
-- 実際の重い判断は全体レビューやレイヤー管理会議へ渡してよい
+- Keep everyday commit-time reviews lightweight
+- Only inspect the `HEAD` diff
+- Do not scan full history or deeply interpret document bodies
+- Do not perform automatic promotion, demotion, or deletion
+- If an advisory appears, it is recommended to look at it at least once in that commit cycle
+- Heavy decisions can be deferred to full reviews or layer-management meetings
 
-## 下位チェック
+## Sub-checks
 
 - `check:agent-sync-candidates`
-  - `.claude` / `.codex` 側の写像見直し候補
+  - review candidates for `.claude` / `.codex` projections
 - `check:expansion-candidates`
-  - Skill 化や `public_candidates/` 追加の見直し候補
+  - review candidates for skill-ization or `public_candidates/` additions
 - `check:pruning-candidates`
-  - `fragments / playbook / experiments / public_candidates / current_state` の軽量な剪定候補
+  - lightweight pruning candidates in `fragments / playbook / experiments / public_candidates / current_state`
 - `check:essay-candidates`
-  - `theory/operational/` から essay 化を検討してよい候補
+  - candidates in `theory/operational/` that may be ready to become essays
 - `check:current-state-sync`
-  - `logs/000_current_state.md` の `last_synced` と最新 daily log の日付ズレ検出
+  - detects date drift between `logs/000_current_state.md` and the latest daily log
 
-## 位置づけ
+## Position
 
-- 増補候補と剪定候補を同じ review 面で扱う
-- commit 時には候補抽出だけで終わらせず、同一サイクル内で見るべきだと分かる形にする
-- 重い判断は、定期レビューや層管理会議で行う
+- Treat expansion candidates and pruning candidates on the same review surface
+- At commit time, do not stop at extraction; make it clear what should be looked at in the same cycle
+- Leave heavy judgments to scheduled reviews or layer-management meetings
 
-## commit 時の扱い
+## Commit-Time Handling
 
-- `npm run check:review-candidates` は、下位 checker をまとめて実行したうえで follow-up reminder も出す
-- `check:linking-candidates` は bundled review ではなく、pre-commit で別に走らせる隣接 advisory として扱う
-- pre-commit では `check:protocol` に加えて `check:linking-candidates` を走らせ、リンク構造の最低限の存在だけを見る
-- reminder は精査の自動実行ではなく、「今見るべき候補がある」ことを明示するためのものである
-- advisory の精査そのものは、対話または人間の判断で行う
-- 実修正不要なら、`pass` 判断として閉じてよい
-- 実修正が必要なら、そのまま追従修正して次のコミットで解消する
+- `npm run check:review-candidates` runs the bundled checkers and prints a follow-up reminder
+- `check:linking-candidates` is treated as an adjacent advisory run separately in pre-commit, not bundled into review management
+- Pre-commit runs `check:linking-candidates` alongside `check:protocol` to ensure at least minimal link structure exists
+- Reminders do not perform automatic analysis; they only signal that something deserves review
+- The actual review of advisory items should happen through dialogue or human judgment
+- If no change is needed, it is fine to close it with a `pass` judgment
+- If a change is needed, fix it directly and resolve it in the next commit

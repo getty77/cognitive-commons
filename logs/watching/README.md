@@ -1,42 +1,39 @@
 # Watching Logs
 
-このディレクトリには、
-動画、映画、講義映像、配信、視覚を伴う長尺入力から生じた観測を置く。
+This directory stores observations derived from videos, films, lecture recordings, streams, and other long-form visual inputs.
 
-`logs/watching/` は、
-`daily` の代替ではなく補助入力層である。
-映像内容の要約ではなく、
-「何が入力になり、何が引っかかり、OSにどう効いたか」を残す。
+`logs/watching/` is not a replacement for `daily`, but a supporting input layer.
+The goal is not to summarize the visual content itself, but to record what became input, what caught attention, and how it affected the OS.
 
-## 役割
+## Role
 
-- 視聴由来の入力を独立したログとして保持する
-- どの演出、構図、文脈に反応しやすいかを見返せるようにする
-- `fragment` / `playbook` / `theory` への昇格候補を切り出しやすくする
+- Keep viewing-derived inputs as independent logs
+- Make it possible to revisit which styles, framing choices, and contexts trigger strong reactions
+- Make it easier to extract promotion candidates for `fragments`, `playbook`, and `theory`
 
-## daily との関係
+## Relationship to `daily`
 
-- 視聴ログの正本は `logs/watching/` に置く
-- その日の current_state や判断に効いた差分だけを `logs/daily/` に短く反映する
-- 映像内容そのものを毎回 `daily` に丸ごと入れない
+- The canonical record of viewing input belongs in `logs/watching/`
+- Only the differences that affected that day's `current_state` or judgments should be briefly reflected in `logs/daily/`
+- Do not dump the full viewing content into `daily`
 
-## 書く内容
+## What to Record
 
-- 何を見たか
-- どこが input になったか
-- どこで引っかかったか
-- どの既存理論や playbook と接続したか
-- 更新候補や昇格候補があるか
+- what was watched
+- what acted as input
+- what caught or resisted
+- what connected to existing theory or playbooks
+- whether there are update or promotion candidates
 
-## 命名規則
+## Naming Rules
 
-- ファイル名は原則として `YYYY-MM-DD_動画タイトル.md` とする
-- タイトルは可能なら原題ではなく、実際に参照した日本語タイトルを使う
-- URL を添付して記録する場合は、そのリンク先で確認できるタイトルをファイル名と `material` に反映する
-- タイトルが長すぎる場合も、意味が変わらない範囲で極端に短縮しない
+- Filenames should generally use `YYYY-MM-DD_video-title.md`
+- When possible, use the Japanese title actually referenced rather than the original-language title
+- If a URL is attached, use the title confirmed at the linked source for both the filename and `material`
+- Even when a title is long, do not shorten it so aggressively that the meaning changes
 
-## 命名例
+## Examples
 
-- `2026-03-27_動画タイトル.md`
-- `2026-03-27_映画タイトル.md`
-- `2026-03-27_ドキュメンタリータイトル.md`
+- `2026-03-27_video-title.md`
+- `2026-03-27_film-title.md`
+- `2026-03-27_documentary-title.md`

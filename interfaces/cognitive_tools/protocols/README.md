@@ -1,8 +1,6 @@
 # Cognitive Tool Protocols
 
-このディレクトリには、
-ログ抽出、保存ハンドオフ、運用受け渡しのような
-手順定義を置く。
+This directory contains procedural definitions such as log extraction, save handoff, and operational transfer.
 
-ここはテンプレート置き場ではなく、
-「どう処理するか」を定義する層である。
+This is not a template shelf.
+It defines how things should be processed.

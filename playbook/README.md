@@ -1,199 +1,148 @@
 # Playbook
 
-このディレクトリには、
-自分のOSを日常運用するための即応的ルール集を置く。
+This directory stores immediate operational rules for running the system in everyday life.
 
-`playbook/` は、
-理論を語る場所ではなく、
-状態に対してどう振る舞うかを決める場所である。
+`playbook/` is not where theory is discussed.
+It is where the system decides how to behave in response to states.
 
-playbook は theory の要約ではない。
-theory から運用可能な部分を抽出して再構成することはあるが、
-目的は異なる。
+Playbooks are not summaries of theory.
+They may extract usable parts from theory and reconstruct them, but the purpose is different.
 
-## theory との違い
+## Difference from Theory
 
-`theory/` は、
-`core/` の説明、概念展開、外向きの記述を置く層である。
-説明可能性と一般化を重視し、
-外部出力のコアにもなりうる。
-内部では、
-締まった `essay` と、
-更新しやすい `operational` を分けてよい。
+`theory/` is the layer for explaining `core/`, expanding concepts, and producing outward-facing conceptual writing.
+It emphasizes explainability and generalization, and may become the core of external output.
+Within theory, it is natural to separate tightly formed `essay` writing from more update-friendly `operational` writing.
 
-`playbook/` は、
-自分向けの実用ルールを置く層である。
-正しさの完全性よりも、
-再利用可能性と即応性を重視する。
+`playbook/`, by contrast, stores practical rules for personal use.
+It emphasizes reusability and immediacy over completeness of truth.
 
-既存エッセイから playbook を作る場合も、
-説明文を短くするのではなく、
-実際に使える判断基準、優先順位、フォールバックへ変換する。
+Even when a playbook is derived from an existing essay, the goal is not to shorten the prose.
+The goal is to convert it into usable criteria, priorities, and fallbacks.
 
-## fragments との違い
+## Difference from Fragments
 
-`fragments/` は、
-観測から立ち上がった局所仮説の保留層である。
-まだ運用ルールとして固定しない。
+`fragments/` is the holding layer for local hypotheses emerging from observation.
+They are not fixed yet as operational rules.
 
-`playbook/` は、
-すでに日常運用で参照する価値があるものを置く。
-挙動、兆候、対応を明示し、
-その場で使える形にする。
+`playbook/` stores things that already have value as everyday references.
+It should make behavior, indicators, and response paths explicit enough to use in the moment.
 
-近い発火条件、補完関係、分岐関係にある playbook 同士は、
-同層リンクで結んでよい。
+Playbooks with nearby triggers, complementary roles, or branching relationships may be linked laterally within the same layer.
 
-`playbook/` は通常、
-`logs/` や `fragments/` から更新される。
-`theory/` は参照元になりうるが、
-`playbook/` は theory の単純要約ではない。
+`playbook/` is normally updated from `logs/` and `fragments/`.
+`theory/` may serve as a reference source, but `playbook/` is not a simple digest of theory.
 
-## tips との違い
+## Difference from Tips
 
-`tips/` は、
-その日から使える軽量ハックや小さな運用知を置く層である。
-概念として締めるより、
-まず再利用できる軽さを優先する。
+`tips/` stores lightweight hacks and small operational knowledge that can be used immediately.
+It prioritizes practical lightness over conceptual closure.
 
-`playbook/` は、
-小技ではなく、
-判断原理や発火条件まで含めた
-概念層の運用ルールを置く。
+`playbook/` stores rules that include decision principles and trigger conditions, not just tricks.
 
-したがって、
-同じ「役に立つ知」でも、
+So even when both are useful knowledge:
 
-- 小さく効いた工夫は `tips/`
-- trigger / indicators / default_response まで持つものは `playbook/`
+- small useful tweaks belong in `tips/`
+- things that carry `trigger / indicators / default_response` belong in `playbook/`
 
-と分けるのが自然である。
-
-## 層の関係
+## Layer Relationships
 
 - `logs/`:
-  状態遷移の記録と派生ログ
+  state transitions and derived logs
 - `tips/`:
-  軽量ハック、小さな運用知
+  lightweight hacks and small operational know-how
 - `fragments/`:
-  観測から抽出した局所仮説
+  local hypotheses extracted from observation
 - `playbook/`:
-  自分向けの実用ルール・挙動集
+  practical rules and behavior guides for personal use
 - `theory/`:
-  `core/` を説明し外部化する抽象理論層
+  abstract theory explaining and externalizing `core/`
 
-OSは、一発で理論化しない。
-観測から段階的に抽象化する。
+The OS does not jump to theory in one step.
+It abstracts gradually from observation.
 
 `logs -> fragments -> playbook -> theory`
 
-この流れにより、
-生ログがそのまま理論へ流入することを防ぎ、
-運用上有効なものだけを段階的に上位層へ移行させる。
+This flow prevents raw logs from entering theory directly and promotes only material that has proven useful in operation.
 
-一方で、
-軽量な再利用知については
+At the same time, there may be a separate lightweight path:
 
 `logs -> tips -> playbook`
 
-という別系統も持ってよい。
+Still, `todo / tips / playbook` are usually easier to read not as a single promotion chain but as three adjacent layers of `practice / means / theory`.
+In everyday use, it is often more natural to reference a playbook as the background principle, use a tip as the implementation means, and instantiate the current action in `todo`.
 
-ただし、
-`todo / tips / playbook` は
-単純な一直線の昇格列というより、
-`実践 / 手段 / 理論`
-の近接三層として扱う方が自然である。
-通常は、
-playbook を背景原理として参照し、
-tips を実装手段として見て、
-todo を今回の実体として起こす、
-というリンク運用を優先する。
+This link-based operation can include same-layer links as well as vertical ones.
+If one playbook works as a prerequisite or branch of another, it is natural to make that explicit.
 
-このリンク運用には、
-上位下位だけでなく同層リンクも含めてよい。
-ある playbook が別の playbook の前提や分岐として働くなら、
-その関係を明示した方が自然である。
+`core/` stands outside this promotion chain as a higher-level definition.
+It should not be treated as something that grows automatically by stacking playbooks.
+Only material that has stabilized in both `theory/` and `playbook/` should be reflected into `core/`, and only carefully.
 
-`core/` はこの昇格列の外側にある上位定義であり、
-playbook を直接積み上げた先に自動的に生えるものではない。
-`theory/` と `playbook/` の両方で安定したものだけを
-慎重に反映する。
+This promotion chain is part of layer management.
+If needed, playbooks may also be demoted from `theory/`, and strongly context-specific material may be relocated into `context/`.
 
-この昇格列はレイヤー管理の一部であり、
-必要なら playbook は `theory/` から降格してきてもよいし、
-個別条件が強いものは `context/` へ移設してよい。
-
-## playbook に関係する層管理基準
+## Layer-Management Criteria Related to Playbook
 
 ### fragment -> playbook
 
-以下のいずれかを満たしたら候補とする。
+Consider promotion when any of the following holds:
 
-- 同様の観測が3回以上出現した
-- `confidence` が `medium` 以上になった
-- 日常運用上、すぐに再利用価値がある
+- the same kind of observation has appeared three or more times
+- `confidence` has reached `medium` or above
+- it already has immediate reuse value in everyday operation
 
-「すぐに再利用価値がある」は、
-以下のうち2つ以上を満たすときに限って強い候補とする。
+“Immediate reuse value” should be considered strong only when at least two of the following are true:
 
-- 明日から参照する具体手順に落ちている
-- 安全性、摩擦低減、過負荷回避のいずれかに直結する
-- 状態の見分け方と最初の応答がすでに書ける
-- 単なる気づきではなく、やる / やらない の差が明確である
+- it can be turned into a concrete procedure for tomorrow
+- it directly affects safety, friction reduction, or overload avoidance
+- both state recognition and first response can already be written
+- it is not just a realization; it clearly changes what to do or not do
 
 ### tips -> playbook
 
-通常は昇格より、
-関連 tip と playbook を相互参照で結ぶことを優先する。
-以下を満たし、
-tip の背景原理を正本化したいときだけ候補とする。
+Usually it is better to link the relevant tip and playbook than to promote directly.
+Promote only when:
 
-- 同じ tip が複数回反復している
-- 小技ではなく判断原理として書ける
-- 他者へ渡しても再利用しやすい一般性がある
-- 状態の見分け方が書ける
+- the same tip repeats multiple times
+- it can be written as a decision principle rather than a trick
+- it is general enough to be reusable even when handed to someone else
+- the state-recognition conditions can be written
 
 ### playbook -> theory
 
-以下のいずれかを満たしたら候補とする。
+Consider promotion when any of the following holds:
 
-- playbook が継続的に有効である
-- 複数の `fragment` / `playbook` に共通構造が見える
-- 個別挙動ではなく一般化可能な理論として記述できる
+- the playbook keeps proving effective over time
+- common structure becomes visible across multiple `fragment` or `playbook` items
+- it can now be written as generalizable theory rather than a local behavior rule
 
-通常は、
-まず `theory/operational/` で橋概念として整理し、
-そこから `new essay` 候補へ進める。
-いきなり締まった essay を目指さない。
+Normally, first organize the bridge concept in `theory/operational/`, then consider whether it should become a new essay.
+Do not aim for a tightly formed essay too early.
 
 ### playbook -> context
 
-以下のいずれかを満たしたら候補とする。
+Consider relocation when any of the following holds:
 
-- 特定家庭・特定関係・特定仕事に強く依存する
-- 汎用ルールというより固有制約の記述になっている
-- 他者へ配ったときに運用ルールとして移植しにくい
+- it depends strongly on a specific family, relationship, or work context
+- it reads less like a general operational rule and more like a fixed constraint description
+- it does not travel well as an operational rule for others
 
 ### playbook -> fragments
 
-以下のいずれかを満たしたら、
-`playbook` として置くより
-`fragments/` へ戻した方が自然である。
+Return to `fragments/` when:
 
-- trigger はあるが default_response がまだ試行段階である
-- 発動場面が少なく、ルール化より観測継続の方が重要である
-- `playbook` に置くと権威が先行し、更新しにくくなる
+- there is a trigger but the default response is still in trial mode
+- the activation scene is still rare enough that continued observation matters more than rule formalization
+- keeping it in `playbook/` would give it too much authority and make it harder to update
 
 ### playbook -> tips
 
-以下のいずれかを満たしたら、
-`playbook` より `tips/` に置く方が自然である。
+Return or split toward `tips/` when:
 
-- 概念層としては重く、実際には小さな工夫として使われている
-- trigger は弱いが、その場で効くことが明確である
-- 原理化すると権威が先行し、軽量な再利用知として持つ方が更新しやすい
+- it is conceptually heavier than its actual use
+- the trigger is weak, but it is clearly helpful in practice
+- turning it into principle would over-authorize it, while holding it as lightweight reusable knowledge keeps it more updateable
 
-この場合も、
-playbook を削って tip に置き換えるより、
-背景原理として playbook を残しつつ、
-実装手段を tip として切り出す方が自然なことが多い。
+Even here, it is often better not to delete the playbook entirely.
+More often the playbook should remain as the background principle while the practical implementation is cut out as a tip.

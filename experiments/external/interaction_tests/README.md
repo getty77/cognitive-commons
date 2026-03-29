@@ -1,18 +1,17 @@
 # Interaction Tests
 
-このディレクトリには、
-対人・対テキスト・対ツールの相互作用テストを置く。
+This directory stores tests of interaction with people, text, and tools.
 
-外部エージェントへの運用写像も、
-ここで扱う interaction test の一種として置いてよい。
+Operational mappings to external agents can also be treated as one form of
+interaction test here.
 
-記録すべき項目：
+Record at least:
 
-- 入力条件
-- 相互作用の形式
-- 発生した出力
-- 摩擦点
-- 再利用可能な示唆
+- input conditions
+- form of interaction
+- resulting output
+- friction points
+- reusable implications
 
-ここでの目的は正しさの証明ではなく、
-どう干渉が起きたかを観測することである。
+The purpose here is not to prove correctness,
+but to observe how interference and interaction actually occur.

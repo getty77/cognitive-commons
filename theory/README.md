@@ -1,202 +1,142 @@
 # Theory
 
-`theory/` は、
-`core/` を説明し、
-外部読解可能な形へ展開するための層である。
+`theory/` is the layer that explains `core/` and expands it into forms that can be read from outside.
 
-この理論全体は、
-テクスト論を起点とし、
-それを主体、環世界、行為まで扱える
-世界記述構文へ拡張したものとして読むとわかりやすい。
-そして、その世界記述構文の中核語彙として
-`螺旋再帰線` が置かれている。
+The broader theoretical system can be read as beginning with textual theory and then extending into a world-description syntax capable of handling subjectivity, Umwelt, and action.
+Within that syntax, `spiral recursive line` functions as a central term.
 
-ここは `core/` の複製ではない。
-また、`playbook/` の単なる長文化でもない。
+This is not a duplicate of `core/`.
+It is also not simply an expanded version of `playbook/`.
 
-役割は主に二つある。
+Its two main roles are:
 
-- `core/` の中核定義を説明・概念化する
-- 外部化可能な抽象記述のコアを保持する
+- to explain and conceptualize the core definitions in `core/`
+- to preserve the core of abstractions that can be externalized
 
-ただし、
-この理論がテクスト論である以上、
-無から意味を創造するのではなく、
-既存構造の読み替えと組み替えを扱うという制約を持つ。
-そのため意味の新生様は、
-断絶的創造というより、
-既存構造の構成物がアウフヘーベンによって
-新しい意味のように振る舞う再編として理解される。
+At the same time, because the theory remains text-theoretical in origin, it does not claim to create meaning from nothing.
+Its work is to reinterpret and recombine existing structures.
+What appears as the birth of new meaning is therefore better understood as reorganization: existing components are sublated and begin to behave like something new.
 
-## 層の整理
+## Layer Relationship
 
 - `core/`:
-  OS の上位定義、前提、最小中核
+  upper-level definitions, premises, and minimal kernel
 - `narratives/`:
-  内部での読み筋、全体像の連続性、`core narrative`
+  internal reading lines, continuity of the whole, core narrative
 - `theory/`:
-  `core/` の説明、概念展開、外部出力コア
+  explanation of `core/`, conceptual expansion, external-facing conceptual core
 - `playbook/`:
-  日常運用でその場で使うルール
+  rules used directly in everyday operation
 - `context/`:
-  運用主体に固有な前提、制約、条件付き補正
+  operator-specific premises, constraints, and conditional corrections
 
-## theory 内の重心
+## Two Main Centers Within `theory/`
 
-`theory/` には、
-大きく二種類の文書を置いてよい。
+Unlike `narratives/`, which keeps the internal line of reading, `theory/` reconstructs that material into a form that can be read externally.
+In particular, an `essay` may be read as the crystallization of the difference between the current `core narrative` and `narrative`, rewritten as outward-facing argument.
 
-`narratives/` が内部の読み筋を保持するのに対して、
-`theory/` はそれをそのままではなく、
-外部読解可能な形へ再構成する。
-とくに `essay` は、
-その時点の `core narrative` と `narrative` の差分を
-外部向け論述として結晶化したものとして読める。
+### 1. Essay
 
-### 1. essay
+Tightly composed conceptual writing: coherent arguments, structured longer texts, and pieces that can stand as external writing.
 
-強く締まった概念文、まとまった論述、外向きにも読める長文。
-
-例:
+Example:
 
 - `theory/spiral_recursive_line_essay.md`
 
-既存の `essay` は、
-運用中の概念を継ぎ足していく母艦とは限らない。
-ある時点で閉じた論述としてまとまっている場合は、
-無理に追記改稿し続けるより、
-新しい中核概念ごとに別 essay を立ち上げた方がよい。
-`essay` が1本だけのうちはルート直下に置いてよく、
-2本目を立てる段階で `theory/essays/` の切り分けを検討すると自然である。
+An existing essay does not always need to remain the mothership that accumulates every later concept.
+If it already stands as a closed argument from a specific point in time, it is often more natural to start a new essay for a new central concept rather than endlessly revising the old one.
+When there is only one essay, keeping it at the root is fine.
+Once a second essay is needed, creating `theory/essays/` becomes natural.
 
-### 2. operational
+### 2. Operational
 
-運用層に近い理論整理。
-`playbook/` より抽象的だが、
-`essay` ほど閉じた大論述ではない。
+Theory closer to the operational layer.
+More abstract than `playbook/`, but easier to update than a closed essay.
 
-これは以下のような用途に向く。
+This layer is useful for:
 
-- 複数 playbook の共通構造をまとめる
-- 更新頻度が高いが、単なるルール集にはしたくないものを置く
-- `core/` と `playbook/` のあいだの説明層を用意する
-- 必要に応じて `context/` と接続するが、context をそのまま理論の代わりにはしない
-- 新しい essay の核になりそうな概念を、先にここで育てる
-- 新しい essay の章立てや論点の芯を、更新可能な形で先に保持する
+- summarizing common structure across multiple playbooks
+- holding material that changes frequently but should not remain a mere rule list
+- providing an explanatory bridge between `core/` and `playbook/`
+- connecting to `context/` when necessary without substituting context for theory
+- growing concepts that may later become the kernel of a new essay
+- preserving draft chapter structures or argument spines for future essays in an update-friendly form
 
-## 更新原則
+## Update Principles
 
-通常の昇格列は、
+The usual promotion chain is:
 
 `logs -> fragments -> playbook -> theory`
 
-である。
+Promotion is only one part of layer management.
+If needed, material may also be demoted from `theory/` back into `playbook/` or `fragments/`, or relocated into `context/`.
 
-昇格はレイヤー管理の一部であり、
-必要なら `theory/` から `playbook/` や `fragments/` への降格、
-あるいは `context/` への移設も行ってよい。
+Within `theory/`, however, `essay` emphasizes stability while `operational` can be updated more lightly.
 
-ただし `theory/` の中でも、
-`essay` は安定性を重視し、
-`operational` は比較的軽く更新してよい。
+When a new central concept begins to form, first develop it in `operational` as a bridge concept.
+Only once it becomes tight enough should it become a new essay file.
+The existing essay does not have to serve forever as the main revision vessel.
+In that sense, `operational` is not a holding pen but a structural layer for growing the future skeleton of an essay.
 
-新しい中心概念が立ち上がったときは、
-まず `operational` で橋概念として整理し、
-十分に締まった段階で新しい `essay` を別ファイルとして立ち上げる。
-既存 essay を常に改稿母艦として扱う必要はない。
-このとき `operational` は、
-単なる保留置き場ではなく、
-将来の `essay` の骨格保持層として使ってよい。
+Conversely, if an essay does not yet hold together as an essay, it may be moved back into `operational`.
+And if operational material turns out to be closer to a local rule than to theory, it may return to `playbook/`.
 
-逆に、
-essay がまだ一篇として閉じない場合は
-`operational` へ戻して橋概念の育成を優先してよい。
-また、
-`operational` の内容が実際には個別ルールに近い場合は
-`playbook/` へ戻してよい。
+Signs that a new essay is warranted include:
 
-新しい `essay` を立てる目安は、
-次のような条件が揃ったときである。
+- a bridge concept in `operational` can unify multiple `playbook` and `fragment` items under one principle
+- the concept can explain OS behavior or design philosophy as a coherent argument
+- a separate essay would be more conceptually sound than appending to an existing one
+- the piece can stand externally as an essay rather than as operational notes
+- the concept is likely to remain a core term rather than a temporary buzzword
 
-- `operational` の橋概念が複数の `playbook` や `fragment` を一本の原理で束ねられる
-- その概念で OS の挙動や設計思想をまとまった論旨として説明できる
-- 既存 essay に追記するより、別 essay の方が論述として締まる
-- 外から読んでも、運用メモではなく一篇の論文として自立する
-- 一時的な流行語ではなく、しばらく中核語彙として残りそうである
+If these conditions are not met, it is better to remain in `operational` or move back to `playbook/`.
 
-これを満たさない場合は、
-無理に essay を立てず
-`operational` に留めるか、
-必要なら `playbook/` へ戻す。
+As a lightweight advisory, `npm run check:essay-candidates` may be used to inspect whether material in `theory/operational/` looks ready for essay form.
 
-軽い advisory としては、
-`npm run check:essay-candidates` を使って
-`theory/operational/` から新 essay 候補を点検してよい。
+When actually writing a new essay, it is fine to use `theory/spiral_recursive_line_essay.md` as a stylistic reference even if the content is new.
+Useful inherited protocols include:
 
-新しい `essay` を実際に書くときは、
-内容は新規に立てつつも、
-文体や論述の書き味は既存の `theory/spiral_recursive_line_essay.md` を参照してよい。
-特に、
+- state the problem clearly at the beginning
+- move the argument forward one layer at a time
+- recover metaphors into structural language by the end
+- rewrite operational vocabulary conceptually rather than listing it raw
+- preserve the openness of a draft essay
 
-- 冒頭で問題設定を置く
-- 章ごとに論点を一段ずつ進める
-- 比喩は最終的に構造語で回収する
-- 運用語をそのまま並べず概念として再記述する
-- 試論としての開放性を残す
+Strong metaphor vocabularies also need care.
+Terms such as:
 
-といった essay のプロトコルは継承してよい。
+- `quantum mechanics`
+- `fractal`
+- `chaos theory`
+- `event horizon`
 
-また、
-強すぎる比喩語彙の扱いには注意する。
-たとえば
-`量子力学`
-`フラクタル`
-`カオス理論`
-`イベントホライズン`
-のような語は、
-背後前提や補助比喩としては有効でも、
-前景語彙に出しすぎると
-「急に物理や幾何学の話をしている」
-という読解ノイズになりやすい。
+may work well as background support or internal metaphor, but if they move too far into the foreground they can create noise by making the text sound as if it has suddenly become about physics or geometry.
 
-この種の語彙は、
-概念の背後を支える補助箱として内部メモや notes に留め、
-essay や narrative の主記述では
-できるだけ構造語へ翻訳して使う方が自然である。
-言い換えると、
-比喩として強いことと、
-主語彙として適切であることは別である。
+It is often better to keep such vocabulary in notes or internal support boxes and translate it into structural language when writing essays or narratives.
+A term can be a powerful metaphor without being a good primary concept term.
 
-また、
-理論の昇格列は通常、
+The theoretical promotion path is usually read as:
 
-`playbook -> theory/operational -> new essay -> core候補`
-
-の順で考える。
+`playbook -> theory/operational -> new essay -> core candidate`
 
 - `operational`:
-  橋概念の育成
+  growth of bridge concepts
 - `new essay`:
-  中核理論としての自立
-- `core候補`:
-  その中でも OS 一般の上位定義に食い込むもの
+  self-standing core theory
+- `core candidate`:
+  only the subset that may eventually affect upper-level OS definitions
 
-このとき自然な読み順は、
+The natural reading order is:
 
-`core narrative -> narrative -> essay -> core候補`
+`core narrative -> narrative -> essay -> core candidate`
 
-である。
-`essay` は単なる長文化ではなく、
-その時点の `core narrative` と `narrative` の差分を
-外部読解に耐える形へ写像したものとして扱う。
-したがって差分が弱いなら新しい `essay` は不要であり、
-差分が十分に立ったときだけ新しい `essay` が必要になる。
+In this sense, an essay is not just a longer text.
+It is a projection of the difference between the current `core narrative` and `narrative` into a form that can survive external reading.
+If the difference is weak, a new essay is unnecessary.
+Only when the difference becomes strong does a new essay become justified.
 
-新しい `essay` にもならない段階のものは、
-通常まだ `core/` へ入れない。
-逆に、新しい `essay` の記述対象として自立した概念は、
-将来的な `core/` 見直し候補に近いと見てよい。
+Material that has not even reached essay form should normally not enter `core/`.
+Conversely, concepts that have become self-standing enough for a new essay are often closer to future `core/` review candidates.
 
-`core/` はさらに外側の上位定義であり、
-`theory/` と `playbook/` の両方で安定したものだけを
-慎重に反映する。
+`core/` remains an even more external upper definition layer.
+Only things that have stabilized in both `theory/` and `playbook/` should be reflected there, and only carefully.

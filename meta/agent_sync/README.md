@@ -1,56 +1,53 @@
 # Agent Sync
 
-このディレクトリには、
-外部エージェント環境へ同期したい運用原則の正本を置く。
+This directory stores the canonical sources for operational principles that should be synchronized into external agent environments.
 
-ここで扱うのは、
-Spiral Recursive OS 本体そのものではなく、
-各エージェント環境へ写像するための同期用ソースである。
+What lives here is not the Cognitive Commons system itself, but the synchronization source used to project parts of it into agent environments.
 
-## 役割
+## Role
 
-- 持ち運び可能な薄い運用層の正本を持つ
-- 各エージェント環境の共通ルールへ同期する
-- repo 固有の濃い写像とは分けて扱う
-- Skill 目録も同じ判断軸で外部環境へ共有する
+- Keep the canonical source for a portable, lightweight operational layer
+- Sync shared rules into each agent environment
+- Keep repo-specific dense projections separate from portable rules
+- Share the skill inventory to external environments under the same logic
 
-## 現在の同期対象
+## Current Sync Targets
 
 - `portable_ops.md`
-  各エージェント環境の `portable-ops.md` へ同期する
+  Syncs to each agent environment's `portable-ops.md`
 - `spiral_recursive_os.md`
-  各エージェント環境の `spiral-recursive-os.md` へ同期する濃い同期層の正本
+  The canonical dense projection synced to each environment's `spiral-recursive-os.md`
 - `meta/skills/README.md`
-  各エージェント環境の `spiral-skills.md` へ同期する Skill 目録の正本
+  The canonical skill inventory synced to each environment's `spiral-skills.md`
 - `candidate_criteria.md`
-  コミット差分から agent sync 候補を自動判定する基準
+  Criteria for automatically detecting agent-sync review candidates from commit diffs
 
-## 関係する層
+## Related Layers
 
-- 薄い共通原則:
+- Lightweight shared principles:
   `meta/agent_sync/portable_ops.md`
-- 濃い repo 固有写像:
+- Dense repo-specific projection:
   `meta/agent_sync/spiral_recursive_os.md`
 
-## 現在の同期先
+## Current Destinations
 
 - `~/.claude/rules/`
 - `~/.codex/rules/`
 
-どちらも同じ正本から写像する。
-必要になったら対象エージェントを増やしてよい。
+Both are projected from the same canonical source.
+More agent environments can be added later if needed.
 
-## 同期方法
+## Sync Commands
 
 - `npm run sync:agent-projections`
 - `npm run check:agent-sync-candidates`
 
-このコマンドで、
-`portable-ops.md` と
-`spiral-recursive-os.md` と
-`spiral-skills.md`
-の三系統を各エージェント環境へ同期する。
+These commands synchronize the three streams:
 
-`check:agent-sync-candidates` は、
-直前コミットの差分を見て
-`portable_ops` または `spiral-recursive-os` または Skill 目録の見直し候補があるかを通知する。
+- `portable-ops.md`
+- `spiral-recursive-os.md`
+- `spiral-skills.md`
+
+into each agent environment.
+
+`check:agent-sync-candidates` looks at the latest commit diff and reports whether `portable_ops`, `spiral_recursive_os`, or the skill inventory should be reviewed.

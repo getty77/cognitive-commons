@@ -1,42 +1,39 @@
 # Listening Logs
 
-このディレクトリには、
-ポッドキャスト、音声配信、会話録音、講義音声などから生じた観測を置く。
+This directory stores observations derived from podcasts, audio streams, recorded conversations, lectures, and other listening-based inputs.
 
-`logs/listening/` は、
-`daily` の代替ではなく補助入力層である。
-音声内容の要約ではなく、
-「何が入力になり、何が引っかかり、OSにどう効いたか」を残す。
+`logs/listening/` is not a replacement for `daily`, but a supporting input layer.
+The goal is not to summarize the audio itself, but to record what became input, what caught attention, and how it affected the OS.
 
-## 役割
+## Role
 
-- 聴取由来の入力を独立したログとして保持する
-- どの話法、論点、話者に反応しやすいかを見返せるようにする
-- `fragment` / `playbook` / `theory` への昇格候補を切り出しやすくする
+- Keep listening-derived inputs as independent logs
+- Make it possible to revisit which styles, topics, and speakers trigger strong reactions
+- Make it easier to extract promotion candidates for `fragments`, `playbook`, and `theory`
 
-## daily との関係
+## Relationship to `daily`
 
-- 聴取ログの正本は `logs/listening/` に置く
-- その日の current_state や判断に効いた差分だけを `logs/daily/` に短く反映する
-- 音声内容そのものを毎回 `daily` に丸ごと入れない
+- The canonical record of listening input belongs in `logs/listening/`
+- Only the differences that affected that day's `current_state` or judgments should be briefly reflected in `logs/daily/`
+- Do not dump the full listening content into `daily`
 
-## 書く内容
+## What to Record
 
-- 何を聴いたか
-- どこが input になったか
-- どこで引っかかったか
-- どの既存理論や playbook と接続したか
-- 更新候補や昇格候補があるか
+- what was heard
+- what acted as input
+- what caught or resisted
+- what connected to existing theory or playbooks
+- whether there are update or promotion candidates
 
-## 命名規則
+## Naming Rules
 
-- ファイル名は原則として `YYYY-MM-DD_音源タイトル.md` とする
-- タイトルは可能なら原題ではなく、実際に参照した日本語タイトルを使う
-- URL を添付して記録する場合は、そのリンク先で確認できるタイトルをファイル名と `material` に反映する
-- タイトルが長すぎる場合も、意味が変わらない範囲で極端に短縮しない
+- Filenames should generally use `YYYY-MM-DD_source-title.md`
+- When possible, use the Japanese title actually referenced rather than the original-language title
+- If a URL is attached, use the title confirmed at the linked source for both the filename and `material`
+- Even when a title is long, do not shorten it so aggressively that the meaning changes
 
-## 命名例
+## Examples
 
-- `2026-03-27_ポッドキャストタイトル.md`
-- `2026-03-27_講義タイトル.md`
-- `2026-03-27_インタビュータイトル.md`
+- `2026-03-27_podcast-title.md`
+- `2026-03-27_lecture-title.md`
+- `2026-03-27_interview-title.md`

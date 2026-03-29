@@ -1,7 +1,5 @@
 # Private Tips
 
-家庭、身体、感情、生活運用の小さな tips を置く。
+This directory stores small tips for home life, body management, emotion handling, and everyday operation.
 
-ここでは、
-家庭内の呼びかけ、感情観測、生活ハック、身体運用のような、
-個人生活に近い軽量運用知を扱う。
+It covers lightweight know-how close to personal life, such as ways of calling to family members, observing emotion, life hacks, or bodily operation.

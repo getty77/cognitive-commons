@@ -1,46 +1,42 @@
 # Directory Management
 
-このディレクトリは、
-ファイル群をどの時点でディレクトリ化するか、
-またどこを優先的に再編するかを管理する。
+This directory manages when a group of files should be split into directories, and which areas should be reorganized first.
 
-`directory_management/` は、
-レイヤー追加とは別の概念である。
-ここで扱うのは新しい責務層を増やす判断ではなく、
-既存の概念群をファイル構造として切り分けたり、
-まとめ直したりする判断である。
+`directory_management/` is separate from layer addition.
+It is not about creating new responsibility layers.
+It is about deciding when an existing conceptual cluster should be split or re-grouped as file structure.
 
-## 目的
+## Purpose
 
-- 概念の親子関係をファイル構造にも反映する
-- ファイル数の増加による見通し悪化を抑える
-- 判断基準と実施履歴を残し、場当たり的なディレクトリ増殖を防ぐ
-- 必要に応じてディレクトリ統合も行い、構造肥大化を防ぐ
-- 層追加時に、ディレクトリ責務の定義漏れを防ぐ
+- Reflect conceptual parent-child relationships in the file structure
+- Prevent growing file counts from reducing navigability
+- Preserve criteria and execution history so directory growth does not become ad hoc
+- Allow directory merges when needed so the structure does not bloat
+- Prevent missing directory-responsibility definitions when adding new layers
 
-## 基本原則
+## Core Principles
 
-- ディレクトリ管理は見た目の整理ではなく責務の可視化である
-- ディレクトリ化と統合は対になる操作として扱う
-- 概念の親子関係が明確なときに切る
-- 探索コストが責務可視化を上回るなら統合を検討する
-- まず README で責務を定義し、それでも混線するなら子ディレクトリを切る
-- 新しい層を追加した場合は、その層のディレクトリ責務も同一サイクルで確認する
-- 一度再編した対象は優先度キューから外し、運用定着と次の密集点を見張る
+- Directory management is not cosmetic cleanup; it is responsibility visualization
+- Directory creation and directory merge should be treated as paired operations
+- Split when the conceptual parent-child relationship is clear
+- If exploration cost exceeds the value of responsibility visibility, consider merging
+- Define responsibilities in README first; only create subdirectories if conflict remains after that
+- When adding a new layer, review that layer's directory responsibility in the same cycle
+- Once an area has been reorganized, remove it from the priority queue and watch for stabilization and the next dense area
 
-## 下位操作
+## Sub-operations
 
 - [`directory_creation/README.md`](./directory_creation/README.md)
-  ディレクトリ化
+  Directory creation
 - [`directory_merge/README.md`](./directory_merge/README.md)
-  統合
+  Directory merge
 
-## 共通文書
+## Shared Documents
 
 - [`priority_queue.md`](./priority_queue.md)
-  現時点の優先順位
+  Current priorities
 
-## 参照先
+## References
 
 - `meta/update/protocol.md`
 - `meta/layer_management/README.md`

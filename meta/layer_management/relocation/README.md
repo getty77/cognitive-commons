@@ -1,12 +1,10 @@
 # Relocation
 
-このディレクトリは、
-層管理における「移設」を扱う。
+This directory handles relocation within layer management.
 
-移設は、
-上下ではなく別責務の層へ置き直す判断である。
+Relocation is the decision to move something into a different responsibility layer sideways rather than up or down.
 
-## 参照先
+## References
 
 - `meta/layer_management/relocation/criteria.md`
 - `meta/layer_management/relocation/log.md`

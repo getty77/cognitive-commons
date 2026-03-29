@@ -1,13 +1,10 @@
 # Demotion
 
-このディレクトリは、
-層管理における「降格」を扱う。
+This directory handles demotion within layer management.
 
-降格は、
-ある記述が現在の層には抽象的すぎず、
-より下位の層で扱う方が責務一致する場合に行う。
+Demotion is used when a description is not abstract enough for its current layer and matches the responsibility of a lower layer more naturally.
 
-## 参照先
+## References
 
 - `meta/layer_management/demotion/criteria.md`
 - `meta/layer_management/demotion/log.md`

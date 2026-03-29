@@ -1,100 +1,99 @@
 # Fragments
 
-このディレクトリには、
-観測から立ち上がった局所的仮説を置く。
+This directory stores local hypotheses that arise from observation.
 
-`fragments/` は、
-`logs/` と `playbook/` のあいだにある保留層である。
-ここでは、観測をまだ理論として固定せず、
-再利用可能かどうかを見極める。
+`fragments/` is the holding layer between `logs/` and `playbook/`.
+It is where observations are not yet fixed as theory,
+but are tested for whether they deserve reuse.
 
-## 役割
+## Role
 
 - `logs/`:
-  状態遷移、出来事、状況記録、およびそこから整理された派生ログ
+  state transitions, events, situational records, and derived logs
 - `tips/`:
-  すぐ効く軽量ハック、小さな運用知
+  lightweight hacks and small operating know-how
 - `fragments/`:
-  観測から切り出した局所仮説、条件付き知見、定義候補
+  local hypotheses, conditional insights, and candidate definitions extracted
+  from observation
 - `playbook/`:
-  日常運用で参照する即応的ルール
+  immediate rules used in everyday operation
 - `theory/`:
-  `core/` の説明、概念展開、外向きの記述
+  explanation of `core/`, conceptual expansion, and outward-facing writing
 
-## 記述方針
+## Writing policy
 
-- 日記ではなく、観測可能な構造として書く
-- 断定よりも、条件つき仮説として扱う
-- どの `logs/` を根拠にしたかを残す
-- どの `playbook/` や `theory/` と接続するかを明示する
-- 必要なら他の `fragment/` との同層リンクも明示する
-- 実行検証として `tips/` と往復してよい
+- Write as observable structure, not as diary prose
+- Treat items as conditional hypotheses rather than declarations
+- Keep track of which `logs/` they come from
+- Note which `playbook/` or `theory/` they connect to
+- When useful, make same-layer links to other fragments
+- Move back and forth with `tips/` for practical testing
 
-`fragments/` は保留層だが、
-孤立した断片の山として扱う必要はない。
-近い仮説、補強関係、反証関係にある fragment 同士は、
-同層リンクでつないでよい。
-無理に上位概念へまとめる前に、
-断片どうしのネットワークを作る方が自然なことも多い。
+`fragments/` is a holding layer,
+but it does not need to become a pile of isolated notes.
+Fragments that are related, mutually reinforcing, or mutually falsifying can
+be linked laterally.
+Sometimes building a network of fragments is more natural than forcing an
+early abstraction.
 
-## fragments に関係する層管理基準
+## Fragment-related layer criteria
 
 ### fragment -> playbook
 
-以下のいずれかを満たしたら候補とする。
+This becomes a candidate when one of the following is true:
 
-- 同様の観測が3回以上出現した
-- `confidence` が `medium` 以上になった
-- 日常運用上、すぐに再利用価値がある
+- the same pattern has appeared three times or more
+- `confidence` has reached at least `medium`
+- it has immediate reuse value in daily operation
 
-「すぐに再利用価値がある」は、
-以下のうち2つ以上を満たすときに限って強い候補とする。
+"Immediate reuse value" should be treated as strong only when at least two of
+the following are true:
 
-- 明日から参照する具体手順に落ちている
-- 安全性、摩擦低減、過負荷回避のいずれかに直結する
-- 状態の見分け方と最初の応答がすでに書ける
-- 単なる気づきではなく、やる / やらない の差が明確である
+- it has already become a concrete procedure you could consult tomorrow
+- it directly improves safety, reduces friction, or helps overload avoidance
+- the state and first response can already be described
+- it is not just a realization; the difference between do / do not do is clear
 
 ### fragment -> tips
 
-以下のいずれかを満たしたら候補とする。
+This becomes a candidate when one of the following is true:
 
-- 仮説の実行検証として、まず小さく回してみたい
-- 概念整理はあるが、日常利用では軽量ハックの形の方が扱いやすい
-- fragment の補強材料を取りたい
+- you want to run it first as a small practical test of the hypothesis
+- it works better as lightweight operational knowledge than as concept
+  organization
+- you want more supporting material for the fragment
 
 ### fragment -> theory
 
-フラグメント単体から直接理論化しない。
-原則として、いったん `playbook/` で運用され、
-継続的に有効だったものを `theory/` の候補とする。
+Fragments should not move directly into theory.
+In principle, they should first be operated through `playbook/`,
+and only what remains effective over time should become a `theory/` candidate.
 
-`core/` はさらに上位の定義層であり、
-theory 化されたもののうち、
-OSの最小中核に影響するものだけを別途見直す。
+`core/` is a further outer layer of definition.
+Only theory that begins to affect the OS kernel should be reviewed there.
 
 ### fragment -> logs
 
-以下のいずれかを満たしたら、
-fragment 化を取り下げて logs ベースの観測へ戻してよい。
+It is acceptable to return from fragment form back to observation in `logs/`
+when one of the following is true:
 
-- 単発の強い体験に引っ張られていた
-- 反復観測が増えず、局所仮説としても弱い
-- 現時点では仮説化より観測継続の方が自然である
+- it was driven too strongly by a one-off intense experience
+- repeated observation did not increase, and it remains weak even as a local
+  hypothesis
+- continued observation is more natural than hypothesis formation right now
 
 ### fragment -> context
 
-以下のいずれかを満たしたら、
-一般仮説として保持するより
-`context/` へ戻した方が自然である。
+It is more natural to relocate a fragment into `context/` when one of the
+following is true:
 
-- 家庭、特定相手、特定仕事への依存が強い
-- 運用主体のプロフィールを知らないと意味が立ちにくい
-- 他者へ移植できる仮説というより固有条件メモに近い
+- it depends heavily on family, a specific person, or a specific job
+- its meaning collapses without knowing the operator's profile
+- it is closer to a note about fixed conditions than to a portable hypothesis
 
-## メタデータ
+## Metadata
 
-各フラグメントは、先頭に以下の項目を持てるようにする。
+Each fragment may include the following fields at the top:
 
 - `title`
 - `status`

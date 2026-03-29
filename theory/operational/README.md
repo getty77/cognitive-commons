@@ -1,36 +1,32 @@
 # Operational Theory
 
-このディレクトリには、
-運用層に近い理論整理を置く。
+This directory stores theory organization that sits close to the operational layer.
 
-ここは `playbook/` より抽象的で、
-`spiral_recursive_line_essay.md` より更新しやすい中間層である。
+It is more abstract than `playbook/`, but easier to update than `spiral_recursive_line_essay.md`.
+It functions as an intermediate layer.
 
-## 役割
+## Role
 
-- 複数 playbook の共通構造を説明する
-- `core/` と `playbook/` の橋渡しをする
-- 外向き理論へ行く前の概念整理を保持する
-- 新しい `essay` の骨格や章立ての芯を、更新可能な状態で保持する
+- explain common structure across multiple playbooks
+- bridge `core/` and `playbook/`
+- preserve concept organization before it becomes outward-facing theory
+- preserve the spine or chapter logic of future essays in an update-friendly form
 
-## 向いている内容
+## Good Fits
 
-- 判断サイクルのような運用原理
-- 脆弱性監視のような設計原理
-- 支援境界や意味摩擦のような横断概念
-- LLM による再編支援のような外部保持層の理論整理
-- 中動態的運用のような OS 全般の挙動説明
+- operational principles such as decision cycles
+- design principles such as vulnerability monitoring
+- cross-cutting concepts such as support boundaries or semantic friction
+- theoretical organization of external holding layers such as LLM-assisted reorganization
+- explanations of OS-wide behavior such as middle-voice-like operation
 
-ここにある文書は、
-完成前の雑置き場ではない。
-将来 `essay` 化しうる概念について、
-支持事例、境界条件、論点の束ね方を育てるための骨格保持層として扱う。
+Documents here are not a dumping ground for unfinished scraps.
+They are a skeleton-preservation layer for growing concepts that may later become essays, including examples, boundary conditions, and ways of bundling arguments.
 
-## 向いていない内容
+## Poor Fits
 
-- 単発の観測
-- 即応手順そのもの
-- OS の最小中核定義
+- one-off observations
+- immediate-response procedures themselves
+- the minimal kernel definitions of the OS
 
-それぞれ、
-`logs/` / `playbook/` / `core/` へ置く。
+Those belong instead in `logs/`, `playbook/`, and `core/`.

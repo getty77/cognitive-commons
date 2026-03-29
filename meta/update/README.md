@@ -1,38 +1,32 @@
 # Update Management
 
-このディレクトリは、
-repo 全体の更新運用に関わる正本をまとめる。
+This directory gathers the canonical documents related to how the repo is updated as a whole.
 
-ここで扱うのは、
+It covers things such as:
 
-- `logs/` への保存と仕分け
-- 過去日記の再投入
-- 整合性維持
+- saving into and routing within `logs/`
+- re-ingesting past diaries
+- maintaining consistency
 
-のような、
-日々の更新経路そのものに関わる文書群である。
+In other words, it governs the daily update paths themselves.
 
-## 下位文書
+## Sub-documents
 
 - [`protocol.md`](./protocol.md)
-  logs の分類、保存、更新の基底プロトコル
+  The base protocol for log classification, saving, and updates
 - [`reingestion.md`](./reingestion.md)
-  過去日記の再投入手順
+  Procedures for re-ingesting past diaries
 - [`consistency.md`](./consistency.md)
-  正本同士の整合性契約
+  Consistency contracts among canonical documents
 
-## 位置づけ
+## Position
 
-`meta/update/` は、
-`layer_management/` や `directory_management/` より手前にある
-日常更新の基底管理層である。
+`meta/update/` is the foundational operational layer for day-to-day updates, sitting before `layer_management/` and `directory_management/`.
 
-層管理やディレクトリ管理が
-「どこに置くか」を扱うのに対して、
-ここでは
-「どう更新するか」を扱う。
+Layer and directory management answer where something should be placed.
+This layer answers how updates should happen.
 
-## 参照先
+## References
 
 - `logs/daily/README.md`
 - `meta/layer_management/README.md`

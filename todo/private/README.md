@@ -1,6 +1,5 @@
 # Private Todo
 
-家庭、身体、感情、生活運用の todo を置く。
+This directory stores todo items for family, body, emotion, and everyday-life operation.
 
-ここでは、
-生活や家庭内で次にやる具体行動を扱う。
+It is for the concrete next actions to take in personal and household life.

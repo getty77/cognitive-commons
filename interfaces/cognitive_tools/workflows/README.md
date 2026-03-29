@@ -1,7 +1,5 @@
 # Cognitive Tool Workflows
 
-このディレクトリには、
-複数ツールや複数端末をまたぐ実運用フローを置く。
+This directory contains practical workflows that span multiple tools or devices.
 
-単体プロトコルではなく、
-「どの順で何を渡すか」を読むための層である。
+Unlike a single protocol, this layer is for reading the sequence of what gets passed where, and in what order.

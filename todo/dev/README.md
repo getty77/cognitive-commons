@@ -1,6 +1,5 @@
 # Dev Todo
 
-開発環境、AI協働、実装ワークフローの todo を置く。
+This directory stores todo items for development environments, AI collaboration, and implementation workflows.
 
-ここでは、
-開発上で次にやる具体行動を扱う。
+It is for the concrete next actions to take in development work.

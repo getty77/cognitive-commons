@@ -1,117 +1,127 @@
 # Narratives
 
-`narratives/` には、
-内部で概念群をどういう筋で読んでいるかという
-連続性の保持を置く。
+`narratives/` holds the continuity of how concept groups are being read
+internally.
 
-ここは `core/` でも `theory/` でもない。
-`core/` が最小中核を扱い、
-`theory/` が外部読解可能な抽象記述を扱うのに対して、
-`narratives/` は内部で全体像をどう束ねているかを扱う。
+It is neither `core/` nor `theory/`.
+`core/` handles the minimal kernel,
+`theory/` handles externally readable abstractions,
+and `narratives/` handles how the whole is internally being tied together.
 
-## 役割
+## Role
 
-- 断片、playbook、theory をどういう筋で読んでいるかを保持する
-- 全体の連続性を、外部論述にする前の内部読み筋として残す
-- `essay` を編む前の素材ではなく、論旨の運び方そのものを保持する
-- 必要なら `core/` の連続性だけを `core narrative` として切り分ける
+- Preserve the line along which fragments, playbooks, and theory are read
+- Hold the continuity of the whole as an internal reading before it becomes
+  external prose
+- Preserve not the raw material before an essay, but the movement of the
+  argument itself
+- Split out a `core narrative` if only the continuity of `core/` needs to be
+  retained
 
-## 含めるもの
+## Include
 
-- 全体像の読み筋
-- `core/` 層の読み筋
-- 複数の `playbook` や `theory/operational/` をどう束ねるかの内部連結
+- The reading line of the whole
+- The reading line of the `core/` layer
+- Internal connections for how multiple `playbook/` files and
+  `theory/operational/` files are tied together
 
-## 含めないもの
+## Do not include
 
-- `core/` の定義そのもの
-- 外部読解に耐えるよう締めた essay
-- 単発の観測や局所仮説
-- 即応ルールそのもの
+- `core/` definitions themselves
+- Finished essays shaped for external reading
+- One-off observations or local hypotheses
+- Immediate operating rules themselves
 
-## 層の違い
+## Layer differences
 
 - `core/`
-  - OS の上位定義、最小中核、原理
+  - the upper definition, minimal kernel, and principles of the OS
 - `narratives/`
-  - それらがどういう筋で連なって見えるかという内部連続性
+  - the internal continuity of how those elements connect into a line
 - `theory/`
-  - `core/` や `narrative` を外部読解に耐える形へ写像した論述
+  - prose that maps `core/` and narrative into an externally readable form
 
-## narrative と core narrative
+## Narrative and core narrative
 
 - `narrative`
-  - OS 全体の連続性
-  - 断片、運用、理論、変化をどう一本の筋として読むか
+  - the continuity of the OS as a whole
+  - how fragments, operations, theory, and change are read as one line
 - `core narrative`
-  - `core/` 層の連続性
-  - 最小中核どうしをどういう筋で読むか
+  - the continuity of the `core/` layer
+  - how minimal kernel elements are read in sequence
 
-## essay との関係
+## Relation to essays
 
-`essay` は、
-`narratives/` をそのまま公開するものではない。
-内部の読み筋を選別し、
-外部読解に耐える形へ再構成した写像である。
+An essay is not a raw publication of `narratives/`.
+It is a reconstructed mapping of selected internal reading lines
+into a form that can survive external reading.
 
-より具体的には、
-`essay` は
-その時点の `core narrative` と `narrative` の差分を、
-外部読解に耐える形へ結晶化したものとして読める。
-差分がないなら新しい `essay` は要らず、
-差分が強く立ったときにだけ新しい `essay` が自然に必要になる。
+More precisely,
+an essay can be read as the crystallization of the difference between the
+current `core narrative` and `narrative`,
+rewritten into externally readable prose.
+If there is no real difference, a new essay is unnecessary.
+If the difference becomes strong, a new essay becomes natural.
 
-そのため、
-`essay` を編むときは
-まず `narratives/` に筋が立っている方が自然である。
-逆に、`narratives/` がないまま essay を書くと、
-論述の骨格が暗黙化しやすい。
+So when writing an essay,
+it is usually more natural if a narrative line already exists.
+Without `narratives/`, the argumentative skeleton of the essay tends to stay
+implicit.
 
-`essay` が結実して、
-その差分のうち OS 一般の前提に食い込むものが見えたとき、
-はじめて `core/` への昇格候補になる。
-つまり、
-`core narrative` と `narrative` の差分が `essay` になり、
-その `essay` を通して `core` 変動が起こる、
-という順序で読むのが自然である。
+Once an essay takes shape,
+and something within that difference begins to affect the assumptions of the
+OS in general,
+it can become a candidate for promotion into `core/`.
+The natural order is:
 
-## narratives に関係する層管理基準
+`difference between core narrative and narrative -> essay -> possible core change`
+
+## Narrative-related layer criteria
 
 ### `theory/operational -> narratives`
 
-以下のいずれかを満たすとき候補とする。
+This becomes a candidate when one of the following is true:
 
-- 複数の `theory/operational/` や `playbook/` を、論旨ではなく読み筋として束ねたい
-- 外部向け essay を編む前に、内部でどの筋を採るかを保持したい
-- `core` と後続理論のつながりを、定義でも論文でもなく内部連続性として持ちたい
+- multiple `theory/operational/` or `playbook/` files should be tied together
+  as a reading line rather than as a formal argument
+- you want to preserve the internal path of an argument before writing an
+  external essay
+- you want to hold the continuity between `core` and later theory as internal
+  continuity rather than as definition or essay
 
 ### `narratives -> essay`
 
-以下をすべて満たすとき候補とする。
+This becomes a candidate only when all of the following are true:
 
-- narrative の筋が外部読解に耐える形へ再構成できる
-- 内部の読み筋をそのまま出すのでなく、論述として閉じられる
-- narrative を参照しなくても一篇として自立する
+- the narrative line can be reconstructed into externally readable prose
+- it can be closed as an argument rather than exposing the internal reading
+  line as-is
+- it can stand on its own as an essay without requiring the narrative file
 
 ### `narratives -> theory/operational`
 
-以下のいずれかを満たしたら戻し候補とする。
+This becomes a return candidate when one of the following is true:
 
-- 読み筋というより、特定の橋概念の説明に圧縮した方が自然である
-- narrative で束ねるには対象が少なく、単一の operational 文書で足りる
-- 全体像の連続性ではなく、個別理論の整理にとどまる
+- it is more natural to compress the material into a specific bridge concept
+  than to keep it as a reading line
+- there are too few elements to justify a narrative, and a single operational
+  document is enough
+- it is not the continuity of the whole, but only the arrangement of one
+  specific theory
 
 ### `narratives -> context`
 
-以下のいずれかを満たしたら戻し候補とする。
+This becomes a return candidate when one of the following is true:
 
-- 全体の読み筋に見えて、実際には運用主体固有の履歴や条件へ強く依存する
-- 他の概念を束ねるというより、個人的な自己解釈メモとして読む方が自然である
-- narrative として置くと過剰な一貫性を帯びやすい
+- it looks like a line of the whole, but in practice depends heavily on the
+  operator's personal history or conditions
+- it is more natural to read it as personal interpretive notes than as
+  something that ties concepts together
+- keeping it in `narratives/` gives it too much false coherence
 
-## 公開との関係
+## Relation to publishing
 
-この層は原則として私有運用を前提とする。
-断片や局所原理よりも、
-複数の概念を横断的に束ねる力が強いため、
-公開版では安易に含めない方がよい。
+This layer is private by default.
+Because it has stronger cross-concept binding power than fragments or local
+principles, it is usually better not to include it casually in a public
+starter kit.

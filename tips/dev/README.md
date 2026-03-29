@@ -1,7 +1,5 @@
 # Dev Tips
 
-開発環境、AI協働、実装ワークフローの小さな tips を置く。
+This directory stores small tips for development environments, AI collaboration, and implementation workflows.
 
-ここでは、
-日々の開発運用で効いた小技や、
-AI と組んだ作業の軽量ハックを扱う。
+It is for lightweight tricks and small pieces of know-how that proved useful in day-to-day development.

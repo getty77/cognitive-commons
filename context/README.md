@@ -1,45 +1,47 @@
 # Context
 
-`context/` には、
-OS の運用対象に固有な前提、制約、プロフィール、条件付きリスクを置く。
+`context/` stores premises, constraints, profiles, and conditional risks
+that are specific to the operator of this OS.
 
-ここは `core/` ではない。
-`core/` が OS 一般の上位定義を扱うのに対し、
-`context/` はこの運用主体に固有な条件を扱う。
+This is not `core/`.
+`core/` defines the upper-level structure of the OS in general,
+while `context/` holds conditions specific to this particular operator.
 
-## 役割
+## Role
 
-- 基礎プロフィールの保持
-- 行動条件としての制約整理
-- 条件付きで参照するリスク補正
-- 運用主体に固有な傾向の記述
+- Keep foundational profile information
+- Organize constraints that shape behavior
+- Hold conditional risk adjustments referenced only when relevant
+- Describe tendencies specific to the operating subject
 
-## `core/` との違い
+## Difference from `core/`
 
 - `core/`:
-  OS の最小上位定義、モデル、原理、プロトコル
+  the minimal upper-level definition of the OS, its model, principles,
+  and protocol
 - `context/`:
-  この運用主体に固有な前提、制約、傾向、条件付き補正
+  premises, constraints, tendencies, and conditional adjustments that are
+  specific to this operator
 
-`narratives/` はこれとも別である。
-`context/` が条件や制約を扱うのに対して、
-`narratives/` は概念群をどういう筋で読んでいるかという
-内部連続性を扱う。
+`narratives/` is separate from this as well.
+`context/` handles conditions and constraints,
+whereas `narratives/` handles the internal continuity of how concept groups
+are being read.
 
-`context/` の内容は重要だが、
-OS の一般構造そのものではない。
-したがって、`core/` の中には入れない。
+The contents of `context/` matter,
+but they are not the general structure of the OS itself.
+They therefore do not belong in `core/`.
 
-## 含めるもの
+## Include
 
 - `foundation_context.md`
 - `bias_profile.md`
 - `identity_constraints.md`
 - `risk_conditions.md`
 
-## 含めないもの
+## Do not include
 
-- 一般化された認知モデル
-- 状態遷移プロトコル
-- 螺旋再帰モデルそのもの
-- 単発の観測ログ
+- Generalized cognitive models
+- State transition protocols
+- The spiral recursive model itself
+- One-off observational logs

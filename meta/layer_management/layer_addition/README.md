@@ -1,17 +1,13 @@
 # Layer Addition
 
-このディレクトリは、
-層管理における「層追加」を扱う。
+This directory handles layer addition within layer management.
 
-層追加は、
-既存層の責務を広げずに新しい受け皿を作る必要がある場合に行う。
+Layer addition is used when a new receiving layer is needed without stretching the responsibilities of existing layers.
 
-新層を追加するときは、
-ディレクトリだけを増やさず、
-README / criteria / log と
-必要なディレクトリ管理上の責務定義まで同一サイクルで揃える。
+When adding a new layer, do not only add a directory.
+Align the README, criteria, log, and any necessary directory-management responsibility definitions in the same cycle.
 
-## 参照先
+## References
 
 - `meta/layer_management/layer_addition/criteria.md`
 - `meta/layer_management/layer_addition/log.md`

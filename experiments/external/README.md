@@ -1,23 +1,23 @@
 # External Experiments
 
-このディレクトリには、
-外部エージェント、外部ツール、外部システムとの接続実験を置く。
+This directory stores connection experiments with external agents, tools, and
+systems.
 
-対象例：
+Examples:
 
-- 他エージェントとの handoff
-- 外部ツール連携
-- repo 外との同期や実行補助
+- handoff with other agents
+- integrations with external tools
+- sync or execution support across repo boundaries
 
-ここでは、
-接続できるか、挙動が安定するか、摩擦がどこに出るかを評価する。
+The point here is to evaluate:
 
-ここで安定したものは、
-必要に応じて `interfaces/` や `meta/` へ昇格してよい。
+- whether the connection works
+- whether the behavior is stable
+- where friction appears
 
-必要に応じて、
+Once stable, material here may be promoted into `interfaces/` or `meta/`.
+
+When needed, use subdivisions such as:
 
 - `interaction_tests/`
-- 個別の接続実験ファイル
-
-のように切ってよい。
+- standalone experiment files for specific integrations

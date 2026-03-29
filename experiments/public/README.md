@@ -1,18 +1,17 @@
 # Public Experiments
 
-このディレクトリには、
-公開・配布・プロダクト化を前提にした試行を置く。
+This directory stores experiments aimed at publication, distribution, or
+productization.
 
-対象例：
+Examples:
 
-- 公開用スターターキット試作
-- 他者向け運用フレームの検証
-- 配布前提のテンプレート試行
-- 公開説明と実装の接続テスト
+- prototype public starter kits
+- validation of operating frameworks for other people
+- template trials intended for distribution
+- connection tests between public explanations and implementation
 
-ここでは、
-個人依存をどこまで外せるか、
-他者が再利用可能かを評価する。
+The main question here is how far personal dependence can be removed,
+and whether others can realistically reuse what is being built.
 
-ここで安定したものは、
-必要に応じて `interfaces/` や `public_candidates/` へ接続してよい。
+Once stable, material here may connect into `interfaces/` or
+`public_candidates/`.

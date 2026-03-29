@@ -1,14 +1,13 @@
 # Cognitive Patterns
 
-このディレクトリには、
-反復して現れる認知パターンの記述を置く。
+This directory stores descriptions of recurring cognitive patterns.
 
-例：
+Examples:
 
-- 負荷時の出力傾向
-- 安定相での注意配分
-- 対話時の再帰加速条件
-- 境界変動のトリガー
+- output tendencies under load
+- attention allocation during stable phases
+- conditions that accelerate recursion in dialogue
+- triggers for boundary fluctuations
 
-1ファイル1パターンを基本とし、
-観測条件と再現条件を分けて書く。
+Use one file per pattern when possible,
+and separate observation conditions from reproduction conditions.

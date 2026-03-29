@@ -1,20 +1,19 @@
 # Core
 
-`core/` には、
-OS 一般の上位定義だけを置く。
+`core/` stores only the upper-level definition of the OS in general.
 
-ここは運用主体に固有な情報置き場ではない。
-また、即応手順や日常ルールを書く場所でもない。
+It is not a place for operator-specific information.
+It is also not where immediate procedures or everyday rules belong.
 
-## 役割
+## Role
 
-- OS の最小中核定義
-- 認知モデル
-- 原理
-- 状態遷移プロトコル
-- 一般化された評価関数
+- Minimal core definition of the OS
+- Cognitive model
+- Principles
+- State transition protocol
+- Generalized evaluation functions
 
-## 含めるもの
+## Include
 
 - `os_spec.md`
 - `principles.md`
@@ -24,30 +23,27 @@ OS 一般の上位定義だけを置く。
 - `state_transition_protocol.md`
 - `recursive_cycle.md`
 
-## 含めないもの
+## Do not include
 
-- 運用主体のプロフィール
-- 家族や仕事に由来する個別制約
-- 条件付きの固有リスク履歴
-- その場で使う即応ルール
-- 単発観測や局所仮説
+- The operator's profile
+- Personal constraints derived from family or work
+- Conditional risk history specific to one person
+- Immediate rules used in the moment
+- One-off observations or local hypotheses
 
-それぞれ、
-`context/` / `playbook/` / `logs/` / `fragments/` に置く。
+Those belong in
+`context/`, `playbook/`, `logs/`, and `fragments/` respectively.
 
-## 更新原則
+## Update principle
 
-`core/` は通常の昇格列の終点ではない。
+`core/` is not the end point of the normal promotion path.
 
-通常の昇格列は、
+The normal promotion path is:
 
 `logs -> fragments -> playbook -> theory`
 
-である。
+That path is one part of layer management,
+and demotion, relocation, layer addition, and layer deletion may also be used.
 
-これはレイヤー管理の一部であり、
-必要なら降格・移設・層追加・層削除も行う。
-
-`core/` はその外側で、
-`playbook/` と `theory/` の両方において
-安定したものだけを慎重に受け取る。
+`core/` sits outside that path and only receives material that has become
+stable in both `playbook/` and `theory/`.

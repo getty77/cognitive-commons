@@ -1,20 +1,17 @@
 # Directory Creation
 
-このディレクトリは、
-層管理における「ディレクトリ化」を扱う。
+This directory handles directory creation within directory management.
 
-ディレクトリ化は、
-単一ディレクトリでは役割差が見えにくくなった概念群を、
-親子構造として切り分ける操作である。
+Directory creation is the operation of separating a conceptual cluster into a parent-child structure when role differences are no longer easy to see within a single directory.
 
-## 下位文書
+## Sub-documents
 
 - [`criteria.md`](./criteria.md)
-  ディレクトリ化の判断基準
+  Criteria for directory creation
 - [`log.md`](./log.md)
-  ディレクトリ化の実施履歴
+  Execution history of directory creation
 
-## 参照先
+## References
 
 - `meta/directory_management/README.md`
 - `meta/directory_management/priority_queue.md`

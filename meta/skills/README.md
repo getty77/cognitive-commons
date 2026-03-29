@@ -1,29 +1,24 @@
 # Skill Inventory
 
-このディレクトリは、
-Spiral Recursive OS 由来で管理している Skill 群の目録を置く。
+This directory stores the inventory of Skills managed as part of Cognitive Commons.
 
-Skill の実体は原則として repo 内 `skills/` を正本とする。
-ここでは、
+The canonical Skill implementations themselves are stored in the repo-local `skills/` directory.
+This inventory exists so the repo can visibly track:
 
-- どの Skill があるか
-- repo のどの正本ルールから写像されたか
-- どこまで Skill 化済みか
-
-を repo 側から見える形で保持する。
+- which Skills exist
+- which canonical rules in the repo they are projected from
+- how far the skill migration has progressed
 
 ---
 
-## ■ active skills
+## Active Skills
 
 ### `spiral-daily-log-sorter`
 
 - status: active
 - path: `/Users/rac77/Documents/Spiral-Recursive-OS/skills/spiral-daily-log-sorter/`
 - role:
-  雑メモ、短い断片、混在入力を
-  `logs/daily/` `logs/qa/` `logs/reading/` `logs/listening/` `logs/watching/` `fragments/`
-  のどこへ置くか判断し、必要なら保存可能な形へ正規化する
+  Decide whether rough notes, short fragments, or mixed input belong in `logs/daily/`, `logs/qa/`, `logs/reading/`, `logs/listening/`, `logs/watching/`, or `fragments/`, and normalize them into savable form when needed
 - source_rules:
   - `logs/daily/README.md`
   - `meta/update/protocol.md`
@@ -34,8 +29,7 @@ Skill の実体は原則として repo 内 `skills/` を正本とする。
 - status: active
 - path: `/Users/rac77/Documents/Spiral-Recursive-OS/skills/spiral-past-diary-reingestion/`
 - role:
-  過去日記を現在のOS語彙で再読解し、
-  `past_daily` と fragment 候補のあいだで安全に扱う
+  Re-read past diaries through the current OS vocabulary and handle them safely between `past_daily` and fragment candidates
 - source_rules:
   - `meta/update/reingestion.md`
   - `meta/update/protocol.md`
@@ -46,9 +40,7 @@ Skill の実体は原則として repo 内 `skills/` を正本とする。
 - status: active
 - path: `/Users/rac77/Documents/Spiral-Recursive-OS/skills/spiral-media-reinterpreter/`
 - role:
-  読書・音声・映像由来の入力を
-  `logs/reading/` `logs/listening/` `logs/watching/`
-  の正規ログへ再読解する
+  Reinterpret reading-, audio-, and video-derived input into normalized media logs
 - source_rules:
   - `logs/reading/README.md`
   - `logs/listening/README.md`
@@ -60,16 +52,14 @@ Skill の実体は原則として repo 内 `skills/` を正本とする。
 - status: active
 - path: `/Users/rac77/Documents/Spiral-Recursive-OS/skills/spiral-layer-review/`
 - role:
-  ファイルや概念が
-  `昇格 / 降格 / 移設 / 層追加 / 層削除`
-  のどれに当たるかを査定する
+  Evaluate whether a file or concept should be promoted, demoted, relocated, added as a layer, or deleted as a layer
 - review_focus:
-  - `immediate reuse` の強さだけでなく、責務と更新頻度がその層に合うかを見る
-  - `core / narratives / theory / context` の責務境界を見分ける
-  - `todo / tips / playbook` を単純昇格列ではなく `実践 / 手段 / 理論` の近接三層として見分ける
-  - 必要なら上位概念新設・下位概念新設・既存概念へのリンクを優先する
-  - `playbook -> theory/operational -> new essay -> core候補` の境界を見分ける
-  - 戻した方が自然なときは降格や移設を優先する
+  - look beyond immediate reuse and ask whether the responsibility and update frequency fit the layer
+  - distinguish the boundaries between `core / narratives / theory / context`
+  - treat `todo / tips / playbook` as adjacent layers of `practice / means / theory`, not just a promotion chain
+  - prefer adding higher concepts, lower concepts, or links to existing concepts when appropriate
+  - distinguish the boundary from `playbook -> theory/operational -> new essay -> core candidate`
+  - prefer demotion or relocation when moving back is more natural
 - source_rules:
   - `meta/layer_management/README.md`
   - `meta/layer_management/promotion/criteria.md`
@@ -83,13 +73,11 @@ Skill の実体は原則として repo 内 `skills/` を正本とする。
 - status: active
 - path: `/Users/rac77/Documents/Spiral-Recursive-OS/skills/spiral-public-candidate-evaluator/`
 - role:
-  対象が `public_candidates/` に置けるか、
-  置けるなら `cognitive_tool / public_translation / both`
-  のどこへ向くかを判定する
+  Judge whether something belongs in `public_candidates/`, and if so whether it points toward `cognitive_tool`, `public_translation`, or `both`
 - review_focus:
-  - 断片や局所原理のままでも価値が立つかを見る
-  - 横断統合や神話体系化を促進する導線になっていないかを見る
-  - `essay` 生成や `core` 候補化を含まなくても公開価値が立つかを見る
+  - ask whether value stands even as a fragment or local principle
+  - avoid pipelines that unintentionally encourage mythic over-integration
+  - ask whether publication value stands even without essay generation or core candidacy
 - source_rules:
   - `public_candidates/README.md`
   - `public_candidates/criteria.md`
@@ -97,18 +85,17 @@ Skill の実体は原則として repo 内 `skills/` を正本とする。
 
 ---
 
-## ■ candidate skills
+## Candidate Skills
 
-以下は `meta/skill_migration_inventory.md` に基づく候補である。
+The following are tracked as candidates based on `meta/skill_migration_inventory.md`.
 
 - `spiral-collaboration-designer`
-  委譲、業務移行、AI 協働、対人支援の場面で、
-  判断基準、権限境界、停止条件、追加裁量ラインの設計を点検する候補
+  A candidate for reviewing judgment criteria, authority boundaries, stop conditions, and discretionary lines in delegation, handoff, AI collaboration, and interpersonal support settings
 
 ---
 
-## ■ relation
+## Relation
 
-- 実行手順の本体は Skill に置く
-- 抽象原則の正本は repo に残す
-- 候補の棚卸しは `meta/skill_migration_inventory.md` を参照する
+- Put executable procedures into Skills
+- Keep abstract principles as canonical repo documents
+- Use `meta/skill_migration_inventory.md` for candidate inventory

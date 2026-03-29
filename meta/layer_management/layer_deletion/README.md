@@ -1,12 +1,10 @@
 # Layer Deletion
 
-このディレクトリは、
-層管理における「層削除」を扱う。
+This directory handles layer deletion within layer management.
 
-層削除は、
-独立した層として維持する意味が薄れた場合に行う。
+Layer deletion is used when the value of maintaining an independent layer has become weak.
 
-## 参照先
+## References
 
 - `meta/layer_management/layer_deletion/criteria.md`
 - `meta/layer_management/layer_deletion/log.md`

@@ -1,18 +1,14 @@
 # Public Translation
 
-このディレクトリには、
-内部仕様を外部向けに翻訳した文書を置く。
+This directory contains documents that translate internal specifications into language suitable for external audiences.
 
-翻訳時の原則：
+Translation principles:
 
-- 神秘化しない
-- 診断語に安易に寄せない
-- 比喩を使う場合は構造を失わない
-- 読み手に応じて密度を調整する
+- do not mystify
+- do not lean too easily on diagnostic language
+- if using metaphor, do not lose the structure
+- adjust density to the intended reader
 
-ここでは内部概念をそのまま露出するのではなく、
-伝達可能な言葉へ変換する。
+The goal here is not to expose internal concepts as-is, but to convert them into language that can be communicated.
 
-翻訳前の候補は、
-`public_candidates/` で
-`destination_tag: public_translation` として保留してよい。
+Candidates that are not ready yet can be held in [`public_candidates/`](../../public_candidates) with `destination_tag: public_translation`.

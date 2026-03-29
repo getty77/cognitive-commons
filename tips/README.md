@@ -1,138 +1,102 @@
 # Tips
 
-このディレクトリには、
-すぐ効く軽量な運用知や小技を置く。
+This directory stores lightweight operational know-how and small hacks that work immediately.
 
-`tips/` は、
-`playbook/` より軽く、
-`logs/` より再利用しやすい受け皿である。
-ここでは、
-強い概念や一般原理を育てるのではなく、
-その場で効いた小さな工夫を
-再投入しやすい形で保持する。
-感触としては、
-`do / act` の具体層に近い。
-主語は、
-`今回これをやる`
-ではなく
-`こうやると通りやすい`
-に置く。
+`tips/` is lighter than `playbook/` and more reusable than `logs/`.
+Its purpose is not to grow strong concepts or general principles, but to preserve small things that worked in a form that can be re-ingested easily.
+In feel, it sits close to the concrete `do / act` layer.
+The subject is not “I will do this now” but “this tends to work.”
 
-## 役割
+## Role
 
 - `logs/`:
-  状態差分、生観測、出来事記録
+  state differences, raw observation, event records
 - `tips/`:
-  すぐ効く軽量ハック、小さな運用知、局所的な再利用メモ
+  lightweight hacks, small operational knowledge, locally reusable notes
 - `fragments/`:
-  観測から立ち上がった局所仮説、定義候補
+  local hypotheses and emerging definitions extracted from observation
 - `playbook/`:
-  即応的だが概念層まで締まった運用ルール
+  operational rules that are immediate but conceptually tighter
 
-## `tips/` に置くもの
+## What Belongs in `tips/`
 
-- その日から使える小さな工夫
-- 日常運用で効いた軽量ハック
-- こうやると楽、こうすると通りやすい、に近い低粒度の運用知
-- 理論思考のうち、概念化するより実行に近い低粒度のもの
-- trigger は弱いが、やると効くことが確認された局所運用
-- `playbook` に置くには概念化が重すぎるもの
-- `logs` に埋めるには惜しい再利用知
+- small things that can be used starting today
+- lightweight hacks that worked in everyday operation
+- low-granularity know-how close to “this makes it easier” or “this tends to go through”
+- low-granularity practical thinking that is closer to execution than to conceptualization
+- local practices with weak triggers but verified practical effect
+- things too conceptually heavy for `playbook/`
+- reusable knowledge too valuable to leave buried in `logs/`
 
-## 置かないもの
+## What Does Not Belong Here
 
-- 生の出来事記録だけのもの
-- 強い概念化や理論化を含むもの
-- trigger / indicators / default_response が締まり、概念層として扱う方が自然なもの
-- まだ効いたかどうかも曖昧な思いつき
+- raw event records by themselves
+- material that contains strong theorization or conceptual closure
+- things whose `trigger / indicators / default_response` are already tight enough to be treated conceptually
+- ideas that are still too unclear to know whether they work
 
-## 使い方の重心
+## Center of Use
 
-通常利用では、
-`logs` の diff を見て、
-必要なら `tips` を参照し、
-`todo` に落として行動する、
-という流れが主になる。
+In normal use, the main flow is:
 
-概念層である `fragments` や `playbook` は、
-毎回触るというより、
-diff が大きい時や、
-運用原理を見直したい時に参照する層として残る。
+`logs diff -> consult tips -> create todo`
 
-`tips` は
-`todo` と近いが、
-`tips` はやり方を保持し、
-`todo` は今回やる実体を保持する。
-同じ内容を両方に置くのではなく、
-`tips` を見て `todo` を起こす、
-の順を基本にする。
+Conceptual layers such as `fragments` and `playbook` are not usually touched every time.
+They are kept for moments when the diff is large or the operational principles need to be revisited.
 
-また、
-`tips / todo / playbook` は、
-単純な昇格列ではなく、
-`手段 / 実践 / 理論`
-の近接三層として読む方が自然である。
-通常は昇格より、
-参照関係を張って連携させる。
+`tips` is close to `todo`, but they are not the same.
+`tips` stores the way of doing something.
+`todo` stores the actual instance to execute now.
+Rather than writing the same thing in both places, the default order is to look at `tips` and then create a `todo`.
 
-同じく、
-近い使いどころや補完関係にある tip 同士も
-同層リンクでつないでよい。
-軽量な運用知の束として読めた方が、
-無理に概念化するより自然なことがある。
+`tips / todo / playbook` are therefore usually easier to read as adjacent layers of `means / practice / theory` than as a simple promotion chain.
+Most of the time, linking is more natural than promotion.
 
-## サブディレクトリ
+Similarly, tips with similar use cases or complementary roles may be linked laterally.
+Sometimes it is better to preserve a bundle of light operational know-how than to force it into a concept layer.
+
+## Subdirectories
 
 - `private/`
-  家庭、身体、感情、生活運用の tips
+  tips for home, body, emotion, and everyday life
 - `work/`
-  顧客対応、会議、引き継ぎ、交渉など仕事運用の tips
+  tips for client communication, meetings, handoff, negotiation, and workplace coordination
 - `dev/`
-  開発環境、AI協働、実装ワークフローの tips
+  tips for development environments, AI collaboration, and implementation workflows
 
-## 層の関係
+## Layer Relationships
 
-`tips/` は通常、
-`logs/` から切り出される。
+`tips/` is normally cut out from `logs/`.
+
+There are two common paths:
 
 `logs -> tips`
 `logs -> fragments`
 
-の二系統があり、
+The rough split is:
 
-- 「小さく効いた。明日また使う」は `tips`
-- 「構造仮説として育てたい」は `fragments`
+- “this worked in a small way and I will likely use it again tomorrow” -> `tips`
+- “this should grow as a structural hypothesis” -> `fragments`
 
-と分けるのが基本である。
+Even when a tip is related to a playbook, it is usually better to ask:
 
-`tips` が `playbook` に関係するときも、
-通常はまず
-`この tip はどの playbook に支えられているか`
-または
-`この playbook を実装するとどの tip になるか`
-をリンクで結ぶ。
+- which playbook supports this tip
+- which tip appears when this playbook is implemented
 
-実際に `tips -> playbook` が起きるのは、
-小技そのものを残したいのではなく、
-背景にある判断原則を正本化したいときである。
+and link them, rather than immediately promoting.
 
-また、
+Actual `tips -> playbook` movement should happen only when the goal is not to preserve the trick itself, but to canonize the judgment principle behind it.
+
+There may also be a path like:
+
 `tips -> fragments -> playbook`
-という経路もありうる。
-小技として使っていたものが、
-実は構造仮説を含んでいたと見えた時点で、
-いったん `fragments` へ上げて概念化し、
-そこから `playbook` へ進めてよい。
 
-逆に、
-`fragments -> tips`
-の切り出しもありうる。
-仮説の実行検証として、
-まず tip として回し、
-その結果で fragment を補強する、
-という往復回路を持ってよい。
+When something used as a small trick turns out to contain a deeper structural hypothesis, move it into `fragments`, conceptualize it, and then let it mature into `playbook`.
 
-## 参照先
+Conversely, `fragments -> tips` is also possible.
+A hypothesis may first be tested in practice as a tip, then used to reinforce the fragment.
+
+## References
 
 - [`criteria.md`](./criteria.md)
 - [`private/README.md`](./private/README.md)

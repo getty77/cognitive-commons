@@ -1,18 +1,17 @@
 # Process
 
-## ■ 役割
+## Role
 
-`process/` は、
-本OSの実行プロトコルを定義する。
+`process/` defines the execution protocol of this OS.
 
-ここで扱うのは思想ではなく、
-1サイクルごとの動作順序である。
+What belongs here is not philosophy,
+but the order of operations within each cycle.
 
 ---
 
-## ■ 実行ループ
+## Execution loop
 
-本OSは以下のループで動作する。
+This OS runs on the following loop:
 
 1. input
 2. normalize
@@ -22,79 +21,75 @@
 6. update
 7. archive
 
-通常フローで扱えないリスクや異常が見えた場合は、
-任意段階から `escalation` へ分岐してよい。
+If a risk or anomaly appears that cannot be handled in the normal flow,
+the cycle may branch into `escalation` from any stage.
 
 ---
 
-## ■ 各段階
+## Stages
 
 ### 1. input
 
-入力を受け取る。
+Receive input.
 
-ここでは以下の二系統を扱う。
+This stage handles two input channels:
 
 - conversation input
 - log input
 
-`input` の責務は、
-入力源の判定と受信単位の切り出しまでである。
+The responsibility of `input` ends at identifying the input source
+and cutting the input into a receivable unit.
 
 ### 2. normalize
 
-二系統入力を、
-後段が扱える共通形式へ整える。
+Convert the two input channels into a common form
+that downstream stages can handle.
 
-ここで初めて、
-conversation と log の密度差を吸収する。
+This is where the density gap between conversation and log input is absorbed.
 
 ### 3. interpret
 
-正規化された入力束を意味構造へ変換する。
+Transform the normalized input bundle into meaning structure.
 
-ここでは、
-現在サイクルで有効な差分だけを抽出する。
+Only the differences that matter in the current cycle are extracted here.
 
 ### 4. decide
 
-解釈された構造から、
-複数の行為候補を立ち上げ、
-その中から1つを選択する。
+Raise multiple action candidates from the interpreted structure
+and select one of them.
 
-ここで分岐が扱われる。
+Branching is handled here.
 
 ### 5. act
 
-`decide` で選択された行為または応答を実行する。
+Execute the action or response selected in `decide`.
 
-`act` は実行専用層であり、
-候補比較や採択は行わない。
+`act` is execution-only.
+It does not compare or choose candidates.
 
 ### 6. update
 
-実行結果を状態差分へ変換し、
-current state と next state を更新する。
+Convert the execution result into state difference
+and update current state and next state.
 
-ここで更新回路が閉じる。
+This is where the update loop closes.
 
 ### 7. archive
 
-更新結果を圧縮記録として `logs/` に保存する。
+Save the update result as a compressed record in `logs/`.
 
-`archive` の出力は、
-将来の `log input` として再投入可能である。
+The output of `archive` can later be reintroduced as `log input`.
 
-`archive` 完了後、
-現在状態を単一参照点として残す必要がある場合は
-`logs/000_current_state.md` を同一サイクルで同期する。
+If the current state needs to remain as a single reference point,
+sync `logs/000_current_state.md` in the same cycle after archive completes.
 
 ---
 
-## ■ 正規形
+## Canonical form
 
-本OSの正規形は、
-「二系統入力・一系統更新」である。
+The canonical form of this OS is:
+
+"two input channels, one update path."
 
 ```text
 [input]
@@ -116,38 +111,41 @@ archive
 
 ---
 
-## ■ 入出力の原則
+## Input/output principles
 
-- `conversation input` は高密度な一次入力である
-- `log input` は低密度・低コストな圧縮入力である
-- `normalize` 以降の更新系は入力源に依存しない
-- `logs` は唯一の主入力ではない
-- `logs` は archive の出力であり、必要時には再入力可能な圧縮形式でもある
-- `logs/000_current_state.md` は current_state の単一参照点であり、更新する場合は最新サイクルに同期する
-
----
-
-## ■ 対応関係
-
-- `core/` は OS の上位定義として、何が存在し何を前提とするかを定義する
-- `context/` はこの運用主体に固有な前提・制約・条件付きリスクを保持する
-- `theory/` は `core/` を説明し、外部読解可能な形へ展開する
-- `process/` はどう動かすかを定義する
-- `logs/` は圧縮記録と再利用可能な文脈を保持する
-- `tips/` は差分から再利用できる軽量な手段を保持する
-- `todo/` は次にやる具体行動を保持する
-- `playbook/` は背景原理として参照されうる
-
-通常利用では、
-`logs diff -> tips参照 -> todo実行`
-が主動線であり、
-必要時のみ `playbook/` や `fragments/` を見に行く。
+- `conversation input` is high-density primary input
+- `log input` is low-density, low-cost compressed input
+- The update path after `normalize` does not depend on the input source
+- `logs` are not the only main input
+- `logs` are the output of archive and also a compressed form that can be
+  reintroduced when needed
+- `logs/000_current_state.md` is the single reference point for current state,
+  and should be synced to the latest cycle when updated
 
 ---
 
-## ■ 正規命名
+## Relation to other layers
 
-見出し名とプロトコル名は以下に固定する。
+- `core/` defines what exists and what the OS assumes
+- `context/` stores premises, constraints, and conditional risks specific to
+  this operator
+- `theory/` explains `core/` in an externally readable form
+- `process/` defines how the OS runs
+- `logs/` store compressed records and reusable context
+- `tips/` store lightweight methods reusable from differences
+- `todo/` stores the next concrete actions
+- `playbook/` can be referenced as background operating principles
+
+In normal use,
+`logs diff -> consult tips -> execute todo`
+is the main path,
+and `playbook/` or `fragments/` are consulted only when needed.
+
+---
+
+## Canonical naming
+
+The following names are fixed for headers and protocol terms:
 
 - `interpret`
 - `decide`
@@ -155,6 +153,6 @@ archive
 - `decision_reason`
 - `input_channel`
 
-旧表記の `interpretation` / `decision` / `action` は、
-履歴ログに残っていてもよいが、
-正本ドキュメントと新規テンプレートでは使わない。
+Older forms such as `interpretation`, `decision`, and `action`
+may remain in historical logs,
+but should not be used in canonical documents or new templates.

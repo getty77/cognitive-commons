@@ -1,14 +1,13 @@
 # Tool Prototypes
 
-このディレクトリには、
-螺旋再帰モデルを支援する道具の試作を置く。
+This directory stores prototype tools that support the spiral recursive model.
 
-対象例：
+Examples:
 
-- 状態記述テンプレート
-- 相転移検知フレーム
-- 境界調整チェックリスト
-- 認知ログ圧縮ツール
+- state description templates
+- phase-transition detection frames
+- boundary adjustment checklists
+- cognitive log compression tools
 
-完成度より、
-構造に対して有効かを優先して評価する。
+Evaluate them primarily by whether they are structurally useful,
+not by completeness.
