@@ -32,12 +32,14 @@ The contents of `context/` matter,
 but they are not the general structure of the OS itself.
 They therefore do not belong in `core/`.
 
-## Include
+## Subdirectory Structure
 
-- `foundation_context.md`
-- `bias_profile.md`
-- `identity_constraints.md`
-- `risk_conditions.md`
+- `personal/` — body, upbringing, and individual constraints (most direct influence on judgment)
+- `religion/` — faith, religion, and value foundations (extremely low update frequency; gravitational field)
+- `culture/` — cultural background, implicit assumptions, default tendencies (hard to notice from inside)
+
+These three layers serve as explanatory variables for divergences in reading and judgment
+when comparing across distros.
 
 ## Do not include
 
