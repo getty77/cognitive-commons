@@ -1,12 +1,15 @@
 # Cognitive Commons
 
-> Your cognitive infrastructure belongs to you.
+> The context your AI has about you should live somewhere you own.
 
-Cognitive Commons is a minimal user-owned context kernel: a forkable Git repo
-where the user, not the provider, keeps the durable context that AI systems
-interpret.
+Your AI assistants are starting to know you — your memory, preferences, history,
+the rules you work by. Almost all of that lives on providers' servers. The better
+they know you, the harder you are to move, audit, or reinterpret elsewhere.
 
-It is Git-based, LLM-agnostic, and intentionally small.
+Cognitive Commons is a small, forkable Git repo that keeps that context on your
+side: plain files any LLM can read, owned by you instead of a platform. It is
+Git-based, LLM-agnostic, and intentionally small — a starting kernel you fill and
+carry, not a service you sign up for.
 
 ## Why This Matters Now
 
@@ -177,11 +180,11 @@ Feedback welcome. Open an issue.
 
 ## 日本語
 
-> あなたの認知インフラは、あなたのものであるべきだ。
+> AI があなたについて持つ文脈は、あなたが所有する場所に置くべきだ。
 
-Cognitive Commons は、ユーザー所有の context kernel です。AI に読ませる長期文脈を provider 側の永続 memory ではなく、ユーザー自身が所有する fork 可能な Git repo に置くための最小構造です。
+AI アシスタントがあなたを知り始めています——記憶・好み・履歴・あなたが従うルール。その大半は provider のサーバーに溜まります。AI があなたを知るほど、あなたは移動も監査も別環境での再解釈もしにくくなる。
 
-Git ベースで、LLM に依存せず、意図的に小さく保っています。
+Cognitive Commons は、その文脈をあなたの側に置く小さな fork 可能な Git repo です。任意の LLM が読める素の file を、platform でなくあなたが所有する。Git ベース・LLM 非依存・意図的に小さい——サインアップするサービスでなく、自分で埋めて持ち運ぶ starter kernel です。
 
 ## なぜ今これが重要か
 
