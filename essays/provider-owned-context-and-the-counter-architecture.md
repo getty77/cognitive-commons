@@ -51,6 +51,22 @@ whose whole claim is "don't hand your context to a system you can't inspect"
 would contradict itself by shipping a script you have to trust. The absence of
 anything to trust *is* the design.
 
+## This is no longer hypothetical
+
+Regulators have started treating persistent, humanlike AI as a hazard. In July
+2026 China's "Interim Measures for AI Personification Interaction Services" took
+effect, targeting services that simulate human personality and provide *sustained
+emotional interaction*, citing dependency and mental-health harm; ByteDance's
+Doubao and Alibaba's Qwen disabled their customizable humanlike agents in
+response. That the risk is real enough for states to act is the useful part.
+
+But notice the *shape* of the default response: prohibit the capability, and let
+the state decide what persona interaction a provider may offer. That's one answer
+to capture — and it's the centralizing one. It doesn't return the substrate to
+the user; it moves control from provider to state. Same risk, opposite governance:
+concentrate control, or distribute ownership. A user-owned, forkable context
+layer is the second axis — the one that survives whoever is doing the deciding.
+
 ## What this actually argues
 
 Not "distrust AI." The opposite: as these systems get more useful, the context
