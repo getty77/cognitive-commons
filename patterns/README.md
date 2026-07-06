@@ -32,3 +32,15 @@ a construction manual. Defenses are published alongside the risks, never after.
 | [provider-owned-context-risk](provider-owned-context-risk.md) | "More helpful" quietly becomes "harder to leave" |
 | [agency-return-protocol](agency-return-protocol.md) | Relief and rescue harden into dependence on the rescuer |
 | [relational-capture-audit](relational-capture-audit.md) | Capture that carries no sexual or coercive markers slips every detector |
+
+## Batch 3 (2026-07) — orchestration
+
+Patterns for running work across several models and agents without losing
+control of judgment or side effects.
+
+| Pattern | Problem it solves |
+|---|---|
+| [multi-model-delegation](multi-model-delegation.md) | Which model does what, and who verifies the "done" |
+| [multi-agent-mesh-roles](multi-agent-mesh-roles.md) | A pile of identical assistants agrees itself into mush |
+| [verify-with-a-different-model](verify-with-a-different-model.md) | Self-review re-confirms its own blind spots |
+| [residue-sweep-after-refactor](residue-sweep-after-refactor.md) | Moves leave dead links that rot the structure quietly |
