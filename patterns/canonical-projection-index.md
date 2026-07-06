@@ -32,7 +32,16 @@ Two supporting rules keep the shape honest:
 ## Minimal recipe
 
 1. Pick one doctrine file as canonical; move the real content there.
-2. Write a sync script that renders it into each harness's expected format
-   and path. Run it from a commit hook so projection freshness is automatic.
-3. Add a drift check: diff projections against what the script would
-   generate; any mismatch is a bug to reconcile, not a local customization.
+2. Project it into each harness's format and path. You don't need to write a
+   sync tool for this — in the agentic era the projection is a plain-language
+   task you hand to an agent, in either direction:
+   - *Consolidate:* "crawl each of my harness configs and fold them into this
+     canonical file" — collapses existing scatter into one source.
+   - *Project:* "from this canonical, write out the config each harness expects"
+     — pushes the source back into every harness.
+   Claude, GPT, or any capable agent will do it. Shipping no sync script is the
+   point, not a gap: there's nothing you have to trust running over your config.
+   (If you later want it automatic, wrap the same instruction in a commit hook.)
+3. Add a drift check: have the agent (or a diff) compare each projection against
+   what the canonical would generate; any mismatch is a bug to reconcile, not a
+   local customization.
