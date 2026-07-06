@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set +e
+
+echo "Checking lightweight review candidates and follow-up reminders..."
+npm run check:review-candidates
+REVIEW_STATUS=$?
+
+if [ "$REVIEW_STATUS" -ne 0 ]; then
+  echo "Post-commit review completed with warnings."
+  echo "lightweight review status: $REVIEW_STATUS"
+fi
+
+exit 0
