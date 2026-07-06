@@ -120,6 +120,9 @@ New here? **[QUICKSTART.md](QUICKSTART.md)** bootstraps the repo from writing yo
 already have — tweet archives, LLM chat logs, a diary, an Obsidian vault — with a
 single LLM-agnostic ingestion pass. You don't start from an empty page.
 
+Want the *why* first? See [`essays/`](essays/) for the argument behind this repo
+(English and Japanese).
+
 ```bash
 git clone https://github.com/getty77/cognitive-commons.git my-os
 cd my-os
